@@ -74,7 +74,9 @@ class Check_insViewController: UIViewController {
                     checkinBeer.type = (doc.data()["type"] as! String)
                     checkinBeer.ABV = (doc.data()["ABV"] as! String)
                     //beer.location = (doc.data()["ABV"] as! String)
-                    checkinBeer.date = (doc.data()["date"] as! Date)
+                    let timestamp = doc.data()["date"] as! Timestamp
+                    
+                    checkinBeer.date = timestamp.dateValue()
                        
                     self.checkinData.append(checkinBeer)
                 }
@@ -157,7 +159,7 @@ class CheckinsTableViewCell: UITableViewCell {
         self.labelBeerName.text = checkinBeer.name
         self.labelBrewery.text = checkinBeer.brewery
         self.labelBeerType.text = checkinBeer.type
-        self.labelCheckinDate.text = df.string(from: checkinBeer.date!)
+self.labelCheckinDate.text = df.string(from: checkinBeer.date!)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
