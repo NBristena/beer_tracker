@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UJq-uT-7cT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BQu-7I-ZRN">
+                                <rect key="frame" x="50" y="338" width="314" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANh-JM-UGS">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
+                                        <color key="backgroundColor" red="0.35849259709999998" green="0.76903553300000005" blue="0.4560371936" alpha="0.79794520550000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="oXc-gr-uIj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" red="1" green="0.99093957060000004" blue="0.93722427220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="m5b-SX-FS2" kind="show" id="8xA-ow-otS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4A-yY-WSn">
+                                        <rect key="frame" x="0.0" y="60" width="314" height="40"/>
+                                        <color key="backgroundColor" red="0.052168755150000003" green="0.44882215399999997" blue="0.61167512690000003" alpha="0.71575342470000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ei8-N1-JqL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <color key="tintColor" red="0.36294416239999999" green="0.202237956" blue="0.00075080536399999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="wUO-by-LrE" kind="show" id="zQH-wW-mhJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bolt.horizontal.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PzS-4a-Kyi">
+                                <rect key="frame" x="87" y="142" width="240" height="92.5"/>
+                                <color key="tintColor" red="1" green="0.99093957060000004" blue="0.93722427220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="7r9-d2-4ev"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BQu-7I-ZRN" secondAttribute="trailing" constant="50" id="CM0-dy-8EX"/>
+                            <constraint firstItem="PzS-4a-Kyi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="FgH-Yv-Zuu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PzS-4a-Kyi" secondAttribute="trailing" constant="87" id="LdV-NZ-VGz"/>
+                            <constraint firstItem="BQu-7I-ZRN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="jtg-O5-lXG"/>
+                            <constraint firstItem="PzS-4a-Kyi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="p3L-CA-jIL"/>
+                            <constraint firstItem="BQu-7I-ZRN" firstAttribute="top" secondItem="PzS-4a-Kyi" secondAttribute="bottom" constant="100" id="rFo-wJ-Z5g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yDd-uV-D1h"/>
+                    <connections>
+                        <outlet property="errorLabel" destination="Jc5-te-vOa" id="ndI-1N-1ac"/>
+                        <outlet property="loginPasswordTextField" destination="5LT-Eb-f4u" id="kI7-5g-y3p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="71.651785714285708"/>
+        </scene>
+        <!--Signup View Controller-->
+        <scene sceneID="Ypn-7f-gOx">
+            <objects>
+                <viewController storyboardIdentifier="SignupViewController" id="wUO-by-LrE" customClass="SignupViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6jY-Ll-Dnm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bolt.horizontal.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tub-IO-hQ0">
+                                <rect key="frame" x="87" y="142" width="240" height="92.5"/>
+                                <color key="tintColor" red="1" green="0.99093957060000004" blue="0.93722427220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="byJ-5j-ybW"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7BG-0E-Iet">
+                                <rect key="frame" x="50" y="338" width="314" height="280"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1l-KS-Ru7">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dg4-F8-sTP"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wUO-by-LrE" id="w0M-0Q-9WR"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xac-VA-Ohl">
+                                        <rect key="frame" x="0.0" y="60" width="314" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="c8z-1j-DzD"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wUO-by-LrE" id="Jpu-5B-HDI"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1w1-fP-SqO">
+                                        <rect key="frame" x="0.0" y="120" width="314" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Gd9-f0-UQp"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wUO-by-LrE" id="gmX-N3-GMk"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4r-uz-HuV">
+                                        <rect key="frame" x="0.0" y="180" width="314" height="40"/>
+                                        <color key="backgroundColor" red="0.052168755147130583" green="0.44882215403897957" blue="0.6116751269035533" alpha="0.71575342465753422" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="15l-jT-c3v"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <color key="tintColor" red="0.36294416239999999" green="0.202237956" blue="0.00075080536399999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signupButtonTapped:" destination="wUO-by-LrE" eventType="touchUpInside" id="ZeK-GI-44Y"/>
+                                            <action selector="signupButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bYU-1k-dlH"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJe-Jq-bX5">
+                                        <rect key="frame" x="0.0" y="240" width="314" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="gOV-e2-UVT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7BG-0E-Iet" firstAttribute="top" secondItem="tub-IO-hQ0" secondAttribute="bottom" constant="100" id="1bX-3e-0Ze"/>
+                            <constraint firstItem="7BG-0E-Iet" firstAttribute="leading" secondItem="aFt-lW-fDM" secondAttribute="leading" constant="50" id="Nql-FC-453"/>
+                            <constraint firstItem="tub-IO-hQ0" firstAttribute="leading" secondItem="aFt-lW-fDM" secondAttribute="leading" constant="87" id="Pjx-f6-XgN"/>
+                            <constraint firstItem="tub-IO-hQ0" firstAttribute="top" secondItem="aFt-lW-fDM" secondAttribute="top" constant="50" id="Pog-QJ-DXS"/>
+                            <constraint firstItem="aFt-lW-fDM" firstAttribute="trailing" secondItem="tub-IO-hQ0" secondAttribute="trailing" constant="87" id="bCs-Yo-BhL"/>
+                            <constraint firstItem="aFt-lW-fDM" firstAttribute="trailing" secondItem="7BG-0E-Iet" secondAttribute="trailing" constant="50" id="h09-kE-z2a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aFt-lW-fDM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kUy-iX-Y14"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="Xac-VA-Ohl" id="xs3-lH-Pd0"/>
+                        <outlet property="errorLabel" destination="JJe-Jq-bX5" id="Mo5-Xy-xWZ"/>
+                        <outlet property="nameTextField" destination="f1l-KS-Ru7" id="6dv-az-8RF"/>
+                        <outlet property="passwordTextField" destination="1w1-fP-SqO" id="MEQ-Cc-WsX"/>
+                        <outlet property="signupButton" destination="T4r-uz-HuV" id="kc8-jk-oJA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gLF-9R-cl8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832" y="410"/>
+        </scene>
+        <!--Check-ins-->
+        <scene sceneID="XcZ-Zt-8br">
+            <objects>
+                <viewController storyboardIdentifier="Check-insViewController" title="Check-ins" id="0ep-53-LLZ" customClass="Check_insViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0gS-56-JBn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="k7g-XN-DQI">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QHI-7A-t0Z"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0ep-53-LLZ" id="PqM-iY-2U5"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Erz-Wq-e9u">
+                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CheckinCell" id="mCa-Wm-0fa" customClass="CheckinsTableViewCell" customModule="BeerTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mCa-Wm-0fa" id="wfd-pe-qna">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3t-GW-R6w">
+                                                    <rect key="frame" x="12" y="6" width="98" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brewery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xza-pO-RoB">
+                                                    <rect key="frame" x="42" y="33" width="68" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15p-Ns-e6o">
+                                                    <rect key="frame" x="42" y="55" width="87" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkin Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xm-bU-P8s">
+                                                    <rect key="frame" x="261" y="29.5" width="131" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                                    <color key="textColor" red="0.13898966239999999" green="0.3311168438" blue="0.49492385789999999" alpha="0.71575342470000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="n3t-GW-R6w" firstAttribute="top" secondItem="wfd-pe-qna" secondAttribute="top" constant="6" id="3AB-x1-6Xc"/>
+                                                <constraint firstItem="Xza-pO-RoB" firstAttribute="leading" secondItem="wfd-pe-qna" secondAttribute="leading" constant="42" id="SIP-iV-AwZ"/>
+                                                <constraint firstItem="Xza-pO-RoB" firstAttribute="top" secondItem="n3t-GW-R6w" secondAttribute="bottom" constant="6" id="Tq8-gV-hiz"/>
+                                                <constraint firstItem="n3t-GW-R6w" firstAttribute="leading" secondItem="wfd-pe-qna" secondAttribute="leading" constant="12" id="V5H-ok-6pS"/>
+                                                <constraint firstItem="8xm-bU-P8s" firstAttribute="centerY" secondItem="wfd-pe-qna" secondAttribute="centerY" id="WbF-Ck-UxR"/>
+                                                <constraint firstItem="15p-Ns-e6o" firstAttribute="leading" secondItem="wfd-pe-qna" secondAttribute="leading" constant="42" id="apE-Sv-t71"/>
+                                                <constraint firstItem="15p-Ns-e6o" firstAttribute="top" secondItem="Xza-pO-RoB" secondAttribute="bottom" constant="3" id="kGs-57-gut"/>
+                                                <constraint firstAttribute="trailing" secondItem="8xm-bU-P8s" secondAttribute="trailing" constant="22" id="l8R-Jk-UrD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelBeerName" destination="n3t-GW-R6w" id="hpx-zN-4q3"/>
+                                            <outlet property="labelBeerType" destination="15p-Ns-e6o" id="8Qw-IH-Isf"/>
+                                            <outlet property="labelBrewery" destination="Xza-pO-RoB" id="jAG-dh-AZX"/>
+                                            <outlet property="labelCheckinDate" destination="8xm-bU-P8s" id="U61-Wb-WEc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0ep-53-LLZ" id="C4y-FV-Cfy"/>
+                                    <outlet property="delegate" destination="0ep-53-LLZ" id="kfF-7l-g3M"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ILT-pK-m3Z" firstAttribute="trailing" secondItem="Erz-Wq-e9u" secondAttribute="trailing" id="4Pl-0N-Kz7"/>
+                            <constraint firstItem="k7g-XN-DQI" firstAttribute="top" secondItem="ILT-pK-m3Z" secondAttribute="top" id="6ab-bi-LvZ"/>
+                            <constraint firstItem="ILT-pK-m3Z" firstAttribute="bottom" secondItem="Erz-Wq-e9u" secondAttribute="bottom" id="Hl5-GX-jUv"/>
+                            <constraint firstItem="Erz-Wq-e9u" firstAttribute="leading" secondItem="ILT-pK-m3Z" secondAttribute="leading" id="YTD-rM-Xka"/>
+                            <constraint firstItem="k7g-XN-DQI" firstAttribute="leading" secondItem="ILT-pK-m3Z" secondAttribute="leading" id="abs-qE-Sjp"/>
+                            <constraint firstItem="Erz-Wq-e9u" firstAttribute="top" secondItem="k7g-XN-DQI" secondAttribute="bottom" id="uwe-8z-I7i"/>
+                            <constraint firstItem="k7g-XN-DQI" firstAttribute="trailing" secondItem="ILT-pK-m3Z" secondAttribute="trailing" id="zLe-Dj-vGq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ILT-pK-m3Z"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Check-ins" id="Cku-dh-URB"/>
+                    <connections>
+                        <outlet property="searchBar" destination="k7g-XN-DQI" id="H8O-Fn-GFz"/>
+                        <outlet property="tableView" destination="Erz-Wq-e9u" id="Nox-sd-w8a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5eN-yp-6pz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3083" y="-565"/>
+        </scene>
+        <!--Wishlist-->
+        <scene sceneID="Xeb-mM-tgO">
+            <objects>
+                <viewController storyboardIdentifier="WishlistViewController" title="Wishlist" id="e92-fF-Zjz" customClass="WishlistViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BlX-5w-3Nm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-LG-CQg">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vhs-RP-JVc"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="e92-fF-Zjz" id="HwX-E6-9Hy"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NNK-x0-fXv">
+                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WishlistCell" id="gnc-Dx-LDS" customClass="WishlistTableViewCell" customModule="BeerTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gnc-Dx-LDS" id="1rv-5J-f88">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYH-1R-VDD">
+                                                    <rect key="frame" x="12" y="6" width="98" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brewery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiF-iq-Dp6">
+                                                    <rect key="frame" x="42" y="33" width="68" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdx-OL-hNK">
+                                                    <rect key="frame" x="42" y="55" width="87" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-wY-bpR">
+                                                    <rect key="frame" x="289" y="17.5" width="103" height="45"/>
+                                                    <color key="backgroundColor" red="0.19746116850000001" green="0.57106598980000001" blue="0.38651527250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="Gn6-DW-CyM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                                    <state key="normal" title=" CHECK-IN ">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="checkinButtonTapped:" destination="gnc-Dx-LDS" eventType="touchUpInside" id="Pvk-gz-1ff"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gdx-OL-hNK" firstAttribute="leading" secondItem="1rv-5J-f88" secondAttribute="leading" constant="42" id="1Lj-77-jD7"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Db-wY-bpR" secondAttribute="trailing" constant="22" id="H3c-l5-MYa"/>
+                                                <constraint firstItem="XiF-iq-Dp6" firstAttribute="leading" secondItem="1rv-5J-f88" secondAttribute="leading" constant="42" id="RhX-i1-1Zd"/>
+                                                <constraint firstItem="6Db-wY-bpR" firstAttribute="centerY" secondItem="1rv-5J-f88" secondAttribute="centerY" id="Y9b-fm-Zah"/>
+                                                <constraint firstItem="EYH-1R-VDD" firstAttribute="leading" secondItem="1rv-5J-f88" secondAttribute="leading" constant="12" id="aOB-Dt-YiB"/>
+                                                <constraint firstItem="gdx-OL-hNK" firstAttribute="top" secondItem="XiF-iq-Dp6" secondAttribute="bottom" constant="3" id="b5Z-mv-Per"/>
+                                                <constraint firstItem="EYH-1R-VDD" firstAttribute="top" secondItem="1rv-5J-f88" secondAttribute="top" constant="6" id="iyx-W7-Whx"/>
+                                                <constraint firstItem="XiF-iq-Dp6" firstAttribute="top" secondItem="EYH-1R-VDD" secondAttribute="bottom" constant="6" id="wcQ-gW-BWo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkinButton" destination="6Db-wY-bpR" id="Ihz-q5-MAh"/>
+                                            <outlet property="labelBeerName" destination="EYH-1R-VDD" id="VcK-wR-3hn"/>
+                                            <outlet property="labelBeerType" destination="gdx-OL-hNK" id="5Z9-J8-cDv"/>
+                                            <outlet property="labelBrewery" destination="XiF-iq-Dp6" id="XZv-u6-FW6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="e92-fF-Zjz" id="yOK-Ya-USF"/>
+                                    <outlet property="delegate" destination="e92-fF-Zjz" id="uew-fS-fm7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HI1-k8-NkN" firstAttribute="trailing" secondItem="NNK-x0-fXv" secondAttribute="trailing" id="4Uq-SA-G79"/>
+                            <constraint firstItem="8Zp-LG-CQg" firstAttribute="top" secondItem="HI1-k8-NkN" secondAttribute="top" id="G40-bI-biq"/>
+                            <constraint firstItem="HI1-k8-NkN" firstAttribute="bottom" secondItem="NNK-x0-fXv" secondAttribute="bottom" id="JS7-cf-c48"/>
+                            <constraint firstItem="HI1-k8-NkN" firstAttribute="trailing" secondItem="8Zp-LG-CQg" secondAttribute="trailing" id="Ul8-RG-u75"/>
+                            <constraint firstItem="NNK-x0-fXv" firstAttribute="top" secondItem="8Zp-LG-CQg" secondAttribute="bottom" id="ZZT-fK-aHg"/>
+                            <constraint firstItem="8Zp-LG-CQg" firstAttribute="leading" secondItem="BlX-5w-3Nm" secondAttribute="leading" id="mjd-cF-nTb"/>
+                            <constraint firstItem="NNK-x0-fXv" firstAttribute="leading" secondItem="HI1-k8-NkN" secondAttribute="leading" id="nEo-Hd-hYa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HI1-k8-NkN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Wishlist" id="vrc-C7-0ha"/>
+                    <connections>
+                        <outlet property="searchBar" destination="8Zp-LG-CQg" id="fRo-OM-ld5"/>
+                        <outlet property="tableView" destination="NNK-x0-fXv" id="kzH-jG-RuD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hny-1t-T7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4325" y="-565"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="ssz-Ra-L2r">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="m5b-SX-FS2" customClass="LoginViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s52-YN-nW5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bolt.horizontal.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NLK-Fl-1Gl">
+                                <rect key="frame" x="87" y="142" width="240" height="92.5"/>
+                                <color key="tintColor" red="1" green="0.99093957060000004" blue="0.93722427220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="PZG-1h-VJv"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UCR-qG-ax6">
+                                <rect key="frame" x="50" y="338" width="314" height="220"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uog-y4-vXC">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="NTx-oJ-DQI"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="m5b-SX-FS2" id="GN1-fC-kGw"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5LT-Eb-f4u">
+                                        <rect key="frame" x="0.0" y="60" width="314" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="etN-mV-52U"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="m5b-SX-FS2" id="Bas-Am-Mq8"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2e-FE-2CR">
+                                        <rect key="frame" x="0.0" y="120" width="314" height="40"/>
+                                        <color key="backgroundColor" red="0.35849259709999998" green="0.76903553300000005" blue="0.4560371936" alpha="0.79794520550000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="SZ2-HL-CgJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" red="1" green="0.99093957060000004" blue="0.93722427220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m3b-XS-9eV"/>
+                                            <action selector="loginButtonTapped:" destination="m5b-SX-FS2" eventType="touchUpInside" id="wce-y1-eBP"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jc5-te-vOa">
+                                        <rect key="frame" x="0.0" y="180" width="314" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Lxw-Su-WGB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xEC-mS-O21" firstAttribute="trailing" secondItem="NLK-Fl-1Gl" secondAttribute="trailing" constant="87" id="2eh-nV-Vzk"/>
+                            <constraint firstItem="NLK-Fl-1Gl" firstAttribute="leading" secondItem="xEC-mS-O21" secondAttribute="leading" constant="87" id="F7s-QN-LUT"/>
+                            <constraint firstItem="xEC-mS-O21" firstAttribute="trailing" secondItem="UCR-qG-ax6" secondAttribute="trailing" constant="50" id="aXq-z7-zl0"/>
+                            <constraint firstItem="UCR-qG-ax6" firstAttribute="top" secondItem="NLK-Fl-1Gl" secondAttribute="bottom" constant="100" id="dct-OR-8X1"/>
+                            <constraint firstItem="UCR-qG-ax6" firstAttribute="leading" secondItem="xEC-mS-O21" secondAttribute="leading" constant="50" id="e3E-C1-zqa"/>
+                            <constraint firstItem="NLK-Fl-1Gl" firstAttribute="top" secondItem="xEC-mS-O21" secondAttribute="top" constant="50" id="vxV-vr-ucA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xEC-mS-O21"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JxW-Hq-bW3"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="uog-y4-vXC" id="9aT-I3-3dr"/>
+                        <outlet property="errorLabel" destination="Jc5-te-vOa" id="Wdf-Jc-ohP"/>
+                        <outlet property="loginButton" destination="x2e-FE-2CR" id="dWx-cJ-DT2"/>
+                        <outlet property="passwordTextField" destination="5LT-Eb-f4u" id="Z48-Zg-wqG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nde-Sh-v1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1831.8840579710147" y="-234.375"/>
+        </scene>
+        <!--Beers-->
+        <scene sceneID="qpn-2a-ouB">
+            <objects>
+                <viewController storyboardIdentifier="BeersViewController" title="Beers" id="0Z4-oI-Bzy" customClass="BeersViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wlf-kz-iR6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="sJf-Q9-iDk">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CXF-Nz-d1K"/>
+                                </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0Z4-oI-Bzy" id="gIN-tt-Qs6"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xTp-UE-6xL">
+                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BeerCell" id="Ubd-LP-MpM" customClass="BeersTableViewCell" customModule="BeerTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ubd-LP-MpM" id="l5z-RS-6bi">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNx-43-4fM">
+                                                    <rect key="frame" x="12" y="6" width="98" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brewery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUk-25-XUZ">
+                                                    <rect key="frame" x="42" y="33" width="68" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sby-kq-7rT">
+                                                    <rect key="frame" x="42" y="55" width="87" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Sby-kq-7rT" firstAttribute="top" secondItem="rUk-25-XUZ" secondAttribute="bottom" constant="3" id="4MD-tr-tMq"/>
+                                                <constraint firstItem="rUk-25-XUZ" firstAttribute="top" secondItem="oNx-43-4fM" secondAttribute="bottom" constant="6" id="6OW-Yh-YZG"/>
+                                                <constraint firstItem="rUk-25-XUZ" firstAttribute="leading" secondItem="l5z-RS-6bi" secondAttribute="leading" constant="42" id="EXx-tG-9cy"/>
+                                                <constraint firstItem="oNx-43-4fM" firstAttribute="top" secondItem="l5z-RS-6bi" secondAttribute="top" constant="6" id="FND-5W-eNY"/>
+                                                <constraint firstItem="oNx-43-4fM" firstAttribute="leading" secondItem="l5z-RS-6bi" secondAttribute="leading" constant="12" id="Rln-23-kfZ"/>
+                                                <constraint firstItem="Sby-kq-7rT" firstAttribute="leading" secondItem="l5z-RS-6bi" secondAttribute="leading" constant="42" id="bJ3-6m-0wy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelBeerName" destination="oNx-43-4fM" id="IXk-a9-joL"/>
+                                            <outlet property="labelBeerType" destination="Sby-kq-7rT" id="eq3-bm-iiO"/>
+                                            <outlet property="labelBrewery" destination="rUk-25-XUZ" id="qmt-Rd-K94"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0Z4-oI-Bzy" id="7a6-WE-ZdQ"/>
+                                    <outlet property="delegate" destination="0Z4-oI-Bzy" id="90w-se-42y"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xTp-UE-6xL" firstAttribute="leading" secondItem="Dqs-Fo-QnN" secondAttribute="leading" id="BHx-HF-kxV"/>
+                            <constraint firstItem="Dqs-Fo-QnN" firstAttribute="trailing" secondItem="xTp-UE-6xL" secondAttribute="trailing" id="LZt-qY-AtI"/>
+                            <constraint firstItem="sJf-Q9-iDk" firstAttribute="leading" secondItem="Dqs-Fo-QnN" secondAttribute="leading" id="OOf-ht-mQx"/>
+                            <constraint firstItem="sJf-Q9-iDk" firstAttribute="trailing" secondItem="Dqs-Fo-QnN" secondAttribute="trailing" id="PJB-us-rqR"/>
+                            <constraint firstItem="Dqs-Fo-QnN" firstAttribute="bottom" secondItem="xTp-UE-6xL" secondAttribute="bottom" id="U7a-0K-jcU"/>
+                            <constraint firstItem="xTp-UE-6xL" firstAttribute="top" secondItem="sJf-Q9-iDk" secondAttribute="bottom" id="hU0-km-oM3"/>
+                            <constraint firstItem="sJf-Q9-iDk" firstAttribute="top" secondItem="Dqs-Fo-QnN" secondAttribute="top" id="rbs-9Z-lGu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dqs-Fo-QnN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Beers" leftItemsSupplementBackButton="YES" id="ZH6-NP-uHj"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="sJf-Q9-iDk" id="fsQ-db-mTf"/>
+                        <outlet property="tableView" destination="xTp-UE-6xL" id="fKl-a6-unH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aqJ-Of-OBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4022" y="88"/>
+        </scene>
+        <!--Challenges-->
+        <scene sceneID="eUF-IO-hBG">
+            <objects>
+                <viewController storyboardIdentifier="ChallengesViewController" title="Challenges" id="AXk-hZ-mof" customClass="ChallengesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ANB-qh-YZU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="xAm-wh-q1x"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Challenges" id="cKq-Cb-My5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OvX-3X-AaV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3083" y="783"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="Pwl-j9-3TN">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" title="Profile" id="Mvl-yN-mj9" customClass="ProfileViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pst-mx-W1J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Ir5-xZ-fWY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="o46-JM-waY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBh-IX-9pk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4325" y="783"/>
+        </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="93E-Lb-NwW">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarViewController" id="6MP-FE-0bE" customClass="TabBarViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jGe-rj-lJc"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="0m1-1A-8Aj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.79949238580000004" green="0.45087077440000001" blue="0.089716751639999995" alpha="0.95205479449999997" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.79949238580000004" green="0.45087077440000001" blue="0.089716751639999995" alpha="0.95205479449999997" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="jAQ-Rf-DsT" kind="relationship" relationship="viewControllers" id="1Sq-x8-lSv"/>
+                        <segue destination="IUY-y3-m7x" kind="relationship" relationship="viewControllers" id="wLr-Hi-uyc"/>
+                        <segue destination="J1p-94-Pyb" kind="relationship" relationship="viewControllers" id="aaI-ji-6S7"/>
+                        <segue destination="ell-eW-Qv7" kind="relationship" relationship="viewControllers" id="3Ky-9x-aPB"/>
+                        <segue destination="Wha-An-I8b" kind="relationship" relationship="viewControllers" id="JdH-fA-hpz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j7x-ch-z6O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2628" y="88"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mHJ-04-NCc">
+            <objects>
+                <navigationController storyboardIdentifier="LoginNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="UJq-uT-7cT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrowshape.turn.up.left" catalog="system" backIndicatorTransitionMaskImage="arrowshape.turn.up.left" id="1k1-7j-kCh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.36294416243654826" green="0.20223795598196656" blue="0.00075080536398530891" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.36294416239999999" green="0.202237956" blue="0.00075080536399999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rhe-8i-YnT">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.36294416239999999" green="0.202237956" blue="0.00075080536399999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="XOK-lI-0L8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j5B-gS-nIk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="71.651785714285708"/>
+        </scene>
+        <!--Beers-->
+        <scene sceneID="VyM-aD-ne3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J1p-94-Pyb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Beers" image="book" catalog="system" landscapeImage="book" largeContentSizeImage="book" selectedImage="book" id="PaU-5b-WNC">
+                        <color key="badgeColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Pg-pL-5rb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Z4-oI-Bzy" kind="relationship" relationship="rootViewController" id="hco-cO-PYN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ya0-Wu-Gmw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3441" y="88"/>
+        </scene>
+        <!--Check-ins-->
+        <scene sceneID="G06-bt-CKu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jAQ-Rf-DsT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="Check-ins" image="text.badge.checkmark" catalog="system" landscapeImage="text.badge.checkmark" largeContentSizeImage="text.badge.checkmark" id="wun-ZQ-rAU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WfY-PG-YfX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0ep-53-LLZ" kind="relationship" relationship="rootViewController" id="yT7-PK-Qhu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4JI-TU-mqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2838" y="-565"/>
+        </scene>
+        <!--Wishlist-->
+        <scene sceneID="ZH2-Og-u1X">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IUY-y3-m7x" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="Wishlist" image="bookmark.fill" catalog="system" landscapeImage="bookmark.fill" largeContentSizeImage="bookmark.fill" id="MYo-5c-oVj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pIz-oV-sLn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="e92-fF-Zjz" kind="relationship" relationship="rootViewController" id="sUb-MF-71J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KZF-77-Bqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4022" y="-565"/>
+        </scene>
+        <!--Challenges-->
+        <scene sceneID="ZDg-Vc-txB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ell-eW-Qv7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Challenges" image="hare.fill" catalog="system" landscapeImage="hare.fill" largeContentSizeImage="hare.fill" id="x5E-Ef-EPH"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vuH-Xp-aJu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AXk-hZ-mof" kind="relationship" relationship="rootViewController" id="OQ0-Xz-l2n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a8H-a1-LEz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2838" y="783"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="G5g-wT-qER">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wha-An-I8b" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" landscapeImage="person.circle" largeContentSizeImage="person.circle" id="Fee-Va-Dq2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MXu-gl-4UB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Mvl-yN-mj9" kind="relationship" relationship="rootViewController" id="gtB-Vk-vPJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zyN-l6-beb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4022" y="783"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
+        <image name="bolt.horizontal.fill" catalog="system" width="128" height="65"/>
+        <image name="book" catalog="system" width="128" height="101"/>
+        <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="hare.fill" catalog="system" width="128" height="91"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="text.badge.checkmark" catalog="system" width="128" height="109"/>
+    </resources>
+</document>
