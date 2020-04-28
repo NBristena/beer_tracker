@@ -16,8 +16,10 @@ class BeersViewController: UIViewController {
     
     
     let db = Firestore.firestore()
+    let uid: String =  Auth.auth().currentUser!.uid
     
     var beerData : [Beer] = []
+    var userBeers : [String:String] = [:]
     var searchedBeer : [Beer] = []
     var searchActive = false
     
@@ -25,8 +27,15 @@ class BeersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.getData(beerData: beerData){ (beerData) in
+        //self.getUserBeers(userBeer: userBeers){ (userBeers) in
+        //    print(userBeers)
+        //}
+        self.getData(beerData: beerData, userBeers: userBeers){ (beerData) in
+            
             print(beerData)
+        }
+        for (k,v) in self.userBeers{
+            print("'\(k)' -> '\(v)'")
         }
         
 
@@ -52,11 +61,25 @@ class BeersViewController: UIViewController {
            */
     }
 
-    func getData(beerData: [Beer], handler: @escaping (([Beer]) -> ()) ){
+    func getData(beerData: [Beer], userBeers: [String:String], handler: @escaping (([Beer]) -> ()) ){
+        let semaphore = DispatchSemaphore(value: 1)
+        db.collection("users/\(uid)/beers").getDocuments { (snapshot, error) in
+            semaphore.wait()
+            if let error = error {print("getUserBeer() error: \(error)")
+            }else{
+                for doc in snapshot!.documents{
+                    let name = (doc.data()["name"] as! String)
+                    let savedAs = (doc.data()["savedAs"] as! String)
+                    self.userBeers[name] = savedAs
+                    print("ADDED \(name) : \(self.userBeers[name]!)")
+                }
+            }
+            semaphore.signal()
+        }
+        
         var beer = Beer()
-        //let g = DispatchGroup()
-        //g.enter()
         db.collection("beers").getDocuments { (snapshot, error) in
+            semaphore.wait()
             if let error = error {
                 print("getData() error: \(error)")
                 //g.leave()
@@ -68,13 +91,30 @@ class BeersViewController: UIViewController {
                     beer.type = (doc.data()["type"] as! String)
                     beer.ABV = (doc.data()["ABV"] as! String)
                     
+                    print("FOR \(beer.name ?? "muie") FOUND \(self.userBeers[beer.name!] ?? "muie")")
+                    
                     self.beerData.append(beer)
                 }
                 self.tableView.reloadData()
                 //g.leave()
             }
+            semaphore.signal()
         }
-     }
+    }
+    
+    func getUserBeers(userBeer: [String:String], handler: @escaping (([String:String]) -> ()) ){
+        //var userBeer = [String:String]
+        db.collection("users/\(uid)/beers").getDocuments { (snapshot, error) in
+            if let error = error {print("getUserBeer() error: \(error)")
+            }else{
+                for doc in snapshot!.documents{
+                    let name = (doc.data()["name"] as! String)
+                    let savedAs = (doc.data()["savedAs"] as! String)
+                    self.userBeers[name] = savedAs
+               }
+           }
+       }
+    }
      
      /*func chooseData() -> [Beer]{
              if searchActive{
@@ -148,11 +188,28 @@ class BeersViewController: UIViewController {
     @IBOutlet weak var labelBrewery: UILabel!
     @IBOutlet weak var labelBeerType: UILabel!
     
+    
+    @IBOutlet weak var markWishlist: UIImageView!
+    @IBOutlet weak var markCheckin: UIImageView!
+    @IBOutlet weak var markChallenge: UIImageView!
+    
     func setBeerCell(with beer: Beer){
         self.labelBeerName.text = beer.name
         self.labelBrewery.text = beer.brewery
         self.labelBeerType.text = beer.type
         
+       /*
+        if beer.mark == "checkin"{
+            self.markCheckin.alpha = 1
+        }else if beer.mark == "wish"{
+            self.markWishlist.alpha = 1
+        }else if beer.mark == "challenge"{
+            self.markChallenge.alpha = 1
+        }else{
+            self.labelBeerName.alpha = 0
+            self.labelBrewery.alpha = 0
+            self.labelBeerType.alpha = 0
+        }*/
     }
      /*private var lineId : Int?
      

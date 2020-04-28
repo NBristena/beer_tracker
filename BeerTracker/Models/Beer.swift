@@ -14,11 +14,12 @@ struct Beer {
     var brewery: String?
     var type: String?
     var ABV: String?
+    var mark: String?
 }
 
 struct UserBeer {
     
-    //var savedAs: String?
+    var savedAs: String?
     var name: String?
     var brewery: String?
     var type: String?
