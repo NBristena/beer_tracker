@@ -27,16 +27,11 @@ class BeersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.getUserBeers(userBeer: userBeers){ (userBeers) in
-        //    print(userBeers)
-        //}
-        self.getData(beerData: beerData, userBeers: userBeers){ (beerData) in
-            
+        self.getData(beerData: beerData){ (beerData) in
             print(beerData)
         }
-        for (k,v) in self.userBeers{
-            print("'\(k)' -> '\(v)'")
-        }
+        
+        
         
 
         //let uid: String =  Auth.auth().currentUser!.uid
@@ -61,10 +56,50 @@ class BeersViewController: UIViewController {
            */
     }
 
-    func getData(beerData: [Beer], userBeers: [String:String], handler: @escaping (([Beer]) -> ()) ){
-        let semaphore = DispatchSemaphore(value: 1)
+    func getData(beerData: [Beer], handler: @escaping (([Beer]) -> ()) ){
+        let dispGr = DispatchGroup()
+        dispGr.enter()
         db.collection("users/\(uid)/beers").getDocuments { (snapshot, error) in
-            semaphore.wait()
+            if let error = error {print("getUserBeer() error: \(error)")
+            }else{
+                for doc in snapshot!.documents{
+                    let name = (doc.data()["name"] as! String)
+                    let savedAs = (doc.data()["savedAs"] as! String)
+                    self.userBeers[name] = savedAs
+                }
+            }
+            dispGr.leave()
+        }
+        
+        dispGr.notify(queue: .main){
+            var beer = Beer()
+            self.db.collection("beers").getDocuments { (snapshot, error) in
+                if let error = error {print("getData() error: \(error)")
+                }else{
+                    for doc in snapshot!.documents{
+                        beer.name = (doc.data()["name"] as! String)
+                        beer.brewery = (doc.data()["brewery"] as! String)
+                        beer.type = (doc.data()["type"] as! String)
+                        beer.ABV = (doc.data()["ABV"] as! String)
+                        if let val = self.userBeers[beer.name!]{
+                            beer.mark = val
+                            print("FOR \(beer.name!) FOUND \(beer.mark!)")
+                        }else{
+                            print("FOR \(beer.name!) NOT FOUND")
+                        }
+                        
+                        self.beerData.append(beer)
+                    }
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func getUserBeers(completion: () -> Void ){
+        print("AICI 1")
+        db.collection("users/\(uid)/beers").getDocuments { (snapshot, error) in
+            print("AICI 2")
             if let error = error {print("getUserBeer() error: \(error)")
             }else{
                 for doc in snapshot!.documents{
@@ -73,47 +108,11 @@ class BeersViewController: UIViewController {
                     self.userBeers[name] = savedAs
                     print("ADDED \(name) : \(self.userBeers[name]!)")
                 }
+                print("AICI 3")
             }
-            semaphore.signal()
+            print("AICI 4")
         }
-        
-        var beer = Beer()
-        db.collection("beers").getDocuments { (snapshot, error) in
-            semaphore.wait()
-            if let error = error {
-                print("getData() error: \(error)")
-                //g.leave()
-            }
-            else{
-                for doc in snapshot!.documents{
-                    beer.name = (doc.data()["name"] as! String)
-                    beer.brewery = (doc.data()["brewery"] as! String)
-                    beer.type = (doc.data()["type"] as! String)
-                    beer.ABV = (doc.data()["ABV"] as! String)
-                    
-                    print("FOR \(beer.name ?? "muie") FOUND \(self.userBeers[beer.name!] ?? "muie")")
-                    
-                    self.beerData.append(beer)
-                }
-                self.tableView.reloadData()
-                //g.leave()
-            }
-            semaphore.signal()
-        }
-    }
-    
-    func getUserBeers(userBeer: [String:String], handler: @escaping (([String:String]) -> ()) ){
-        //var userBeer = [String:String]
-        db.collection("users/\(uid)/beers").getDocuments { (snapshot, error) in
-            if let error = error {print("getUserBeer() error: \(error)")
-            }else{
-                for doc in snapshot!.documents{
-                    let name = (doc.data()["name"] as! String)
-                    let savedAs = (doc.data()["savedAs"] as! String)
-                    self.userBeers[name] = savedAs
-               }
-           }
-       }
+        completion()
     }
      
      /*func chooseData() -> [Beer]{
@@ -144,24 +143,16 @@ class BeersViewController: UIViewController {
          }else{
              cell.setBeerCell(with: beerData[indexPath.row])
          }
-         //cell.accessoryType = .disclosureIndicator
+         cell.accessoryType = .disclosureIndicator
          return cell
      }
      
  }
 
  extension BeersViewController: UISearchBarDelegate{
-     
-    func textFieldShouldReturn(_ searchTextField: UISearchTextField) -> Bool {
-        searchTextField.resignFirstResponder()
-      return true
-    }
-    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-         //print("aici")
         searchBar.showsCancelButton = true
-        //searchBar.showsSearchResultsButton = true
         searchedBeer = beerData.filter({$0.name!.lowercased().contains(searchText.lowercased())})
         searchActive = true
         self.tableView.reloadData()
@@ -198,7 +189,7 @@ class BeersViewController: UIViewController {
         self.labelBrewery.text = beer.brewery
         self.labelBeerType.text = beer.type
         
-       /*
+        
         if beer.mark == "checkin"{
             self.markCheckin.alpha = 1
         }else if beer.mark == "wish"{
@@ -206,10 +197,10 @@ class BeersViewController: UIViewController {
         }else if beer.mark == "challenge"{
             self.markChallenge.alpha = 1
         }else{
-            self.labelBeerName.alpha = 0
-            self.labelBrewery.alpha = 0
-            self.labelBeerType.alpha = 0
-        }*/
+            self.markCheckin.alpha = 0
+            self.markWishlist.alpha = 0
+            self.markChallenge.alpha = 0
+        }
     }
      /*private var lineId : Int?
      
