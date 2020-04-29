@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import FirebaseFirestore
-
 
 struct Beer {
     var id: String?

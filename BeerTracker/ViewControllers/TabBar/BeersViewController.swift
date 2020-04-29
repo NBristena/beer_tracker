@@ -28,13 +28,6 @@ class BeersViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Beers", style: .plain, target: nil, action: nil)
-        
-        /* UPDATE
-         checkinsRef.document("beer-d").updateData([field:value])
-         
-         * DELETE
-         checkinsRef.document("beer-d").delete()
-        */
     }
     
     

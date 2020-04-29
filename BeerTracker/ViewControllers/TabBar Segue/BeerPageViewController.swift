@@ -53,11 +53,11 @@ class BeerPageViewController: UIViewController {
 
     @IBAction func wishlistButtonTapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Action",
+        let alert = UIAlertController(title: "",
                                       message: "Are you sure you want to add this beer to WISHLIST?",
                                       preferredStyle: .actionSheet)
    
-        let saveAction = UIAlertAction(title: "ADD", style: .default) { _ in
+        let saveAction = UIAlertAction(title: "WISH", style: .default) { _ in
             self.userBeersDb.document((self.beer.id)!).setData(["savedAs":"wish",
                                                                 "id":self.beer.id!,
                                                                 "name":self.beer.name!,
@@ -69,7 +69,7 @@ class BeerPageViewController: UIViewController {
             self.viewDidLoad()
         }
               
-        let cancelAction = UIAlertAction(title: "No", style: .cancel)
+        let cancelAction = UIAlertAction(title: "I changed my mind", style: .cancel)
             
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
@@ -79,11 +79,11 @@ class BeerPageViewController: UIViewController {
     
     
     @IBAction func checkinButton(_ sender: Any) {
-        let alert = UIAlertController(title: "Action",
+        let alert = UIAlertController(title: "",
                                       message: "Are you sure you want to add this beer to CKECK-INS?",
                                       preferredStyle: .actionSheet)
               
-        let saveAction = UIAlertAction(title: "ADD", style: .default) { _ in
+        let saveAction = UIAlertAction(title: "CHECK-IN", style: .default) { _ in
             self.userBeersDb.document((self.beer.id)!).setData(["savedAs":"checkin",
                                                                 "id":self.beer.id!,
                                                                 "name":self.beer.name!,
@@ -96,7 +96,7 @@ class BeerPageViewController: UIViewController {
             self.viewDidLoad()
         }
               
-        let cancelAction = UIAlertAction(title: "No", style: .cancel)
+        let cancelAction = UIAlertAction(title: "I changed my mind", style: .cancel)
             
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
@@ -151,6 +151,8 @@ class BeerPageViewController: UIViewController {
         self.labelBrewery.text = beer.brewery!
         self.labelType.text = beer.type!
         self.labelABV.text = beer.ABV! + " ABV"
+        
+        self.title = "INFO"
         
     }
     
