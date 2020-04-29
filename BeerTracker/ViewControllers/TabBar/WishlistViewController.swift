@@ -26,7 +26,7 @@ class WishlistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        self.reload()
+        self.getData()
 
                          
     }
@@ -55,7 +55,7 @@ class WishlistViewController: UIViewController {
                     
                     self.wishlistData.append(wishlistBeer)
                 }
-                //self.tableView.reloadData()
+                self.tableView.reloadData()
             }
             group.leave()
         }
@@ -146,6 +146,8 @@ class WishlistTableViewCell: UITableViewCell {
         self.labelBeerName.text = wishlistBeer.name
         self.labelBrewery.text = wishlistBeer.brewery
         self.labelBeerType.text = wishlistBeer.type
+        self.checkinButton.layer.cornerRadius = 5
+        self.checkinButton.layer.borderWidth = 1
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

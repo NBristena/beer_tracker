@@ -27,9 +27,11 @@ class BeersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.getData()
-        //self.tableView.reloadData()
-        self.reload()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Beers", style: .plain, target: nil, action: nil)
+        
+        self.getData()
+        self.tableView.reloadData()
+        //self.reload()
         
 
         
@@ -96,7 +98,7 @@ class BeersViewController: UIViewController {
                         
                         self.beerData.append(beer)
                     }
-                    //self.tableView.reloadData()
+                    self.tableView.reloadData()
                 }
                 group2.leave()
             }

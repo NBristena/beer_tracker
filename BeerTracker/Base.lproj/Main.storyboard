@@ -582,6 +582,7 @@
                                             <outlet property="markChallenge" destination="SDO-Ze-3Fx" id="WOi-35-BwR"/>
                                             <outlet property="markCheckin" destination="6qU-Bg-FH2" id="ImW-u7-din"/>
                                             <outlet property="markWishlist" destination="K5e-Aq-O2z" id="HZL-cr-CqN"/>
+                                            <segue destination="sbo-7w-asc" kind="show" id="d4g-1x-3gj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -613,6 +614,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqJ-Of-OBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4021.739130434783" y="87.723214285714278"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="v3Q-el-3Er">
+            <objects>
+                <viewController id="sbo-7w-asc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Anh-NA-gYc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NI9-IK-ipj">
+                                <rect key="frame" x="20" y="633" width="374" height="160"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvI-dd-pgO">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <color key="backgroundColor" red="0.16091564310000001" green="0.36333803310000001" blue="0.61167512690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="voV-hB-rpu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        <state key="normal" title="Create CHALLENGE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baE-Z9-nwj">
+                                        <rect key="frame" x="0.0" y="55" width="374" height="50"/>
+                                        <color key="backgroundColor" red="0.92639593909999995" green="0.51721457910000002" blue="0.108533768" alpha="0.95205479449999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="wOK-6n-su5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        <state key="normal" title="Add to WISHLIST">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjo-gd-vJb">
+                                        <rect key="frame" x="0.0" y="110" width="374" height="50"/>
+                                        <color key="backgroundColor" red="0.19746116850000001" green="0.57106598980000001" blue="0.38651527250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="LpL-bo-iBT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        <state key="normal" title="CHECK-IN">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NI9-IK-ipj" firstAttribute="leading" secondItem="org-EN-Eco" secondAttribute="leading" constant="20" id="EsO-KB-iOD"/>
+                            <constraint firstItem="org-EN-Eco" firstAttribute="trailing" secondItem="NI9-IK-ipj" secondAttribute="trailing" constant="20" id="OIK-zT-Q7s"/>
+                            <constraint firstItem="org-EN-Eco" firstAttribute="bottom" secondItem="NI9-IK-ipj" secondAttribute="bottom" constant="20" id="X2E-yr-hSb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="org-EN-Eco"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wZL-bG-UOg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jZf-lv-MCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4791" y="88"/>
         </scene>
         <!--Challenges-->
         <scene sceneID="eUF-IO-hBG">
@@ -712,12 +774,15 @@
                         <color key="badgeColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Pg-pL-5rb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrowshape.turn.up.left" catalog="system" id="0Pg-pL-5rb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.36294416239999999" green="0.202237956" blue="0.00075080536399999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="1" green="0.72819379029999998" blue="0.124756309" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                            <color key="textColor" red="0.36294416239999999" green="0.202237956" blue="0.00075080536399999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
