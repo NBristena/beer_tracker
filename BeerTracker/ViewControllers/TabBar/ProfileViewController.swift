@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
             }
             else{
                 let userName = user!.data()!["name"] as! String
-                self.title = userName
+                self.title = "Hello, " + userName
             }
         }
         

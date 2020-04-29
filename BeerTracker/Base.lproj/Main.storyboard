@@ -184,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="1832" y="410"/>
         </scene>
-        <!--Check-ins-->
+        <!--CHECK-INS-->
         <scene sceneID="XcZ-Zt-8br">
             <objects>
-                <viewController storyboardIdentifier="Check-insViewController" title="Check-ins" id="0ep-53-LLZ" customClass="Check_insViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Check-insViewController" title="CHECK-INS" id="0ep-53-LLZ" customClass="Check_insViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0gS-56-JBn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -285,10 +285,10 @@
             </objects>
             <point key="canvasLocation" x="3083" y="-565"/>
         </scene>
-        <!--Wishlist-->
+        <!--WISHLIST-->
         <scene sceneID="Xeb-mM-tgO">
             <objects>
-                <viewController storyboardIdentifier="WishlistViewController" title="Wishlist" id="e92-fF-Zjz" customClass="WishlistViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WishlistViewController" title="WISHLIST" id="e92-fF-Zjz" customClass="WishlistViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BlX-5w-3Nm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -486,10 +486,10 @@
             </objects>
             <point key="canvasLocation" x="1831.8840579710147" y="-234.375"/>
         </scene>
-        <!--Beers-->
+        <!--BEERS-->
         <scene sceneID="qpn-2a-ouB">
             <objects>
-                <viewController storyboardIdentifier="BeersViewController" title="Beers" id="0Z4-oI-Bzy" customClass="BeersViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BeersViewController" title="BEERS" id="0Z4-oI-Bzy" customClass="BeersViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wlf-kz-iR6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -615,10 +615,10 @@
             </objects>
             <point key="canvasLocation" x="4021.739130434783" y="87.723214285714278"/>
         </scene>
-        <!--Beer Page View Controller-->
+        <!--INFO-->
         <scene sceneID="v3Q-el-3Er">
             <objects>
-                <viewController id="sbo-7w-asc" customClass="BeerPageViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="INFO" id="sbo-7w-asc" customClass="BeerPageViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Anh-NA-gYc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -777,10 +777,10 @@
             </objects>
             <point key="canvasLocation" x="4791" y="88"/>
         </scene>
-        <!--Create Challenge View Controller-->
+        <!--CHALLENGE-->
         <scene sceneID="wAG-Wd-gDg">
             <objects>
-                <viewController id="tp2-k6-9sF" customClass="createChallengeViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="CHALLENGE" id="tp2-k6-9sF" customClass="createChallengeViewController" customModule="BeerTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NKY-2u-IyC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -788,12 +788,79 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56C-VK-Sa1">
                                 <rect key="frame" x="20" y="118" width="374" height="685"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Name" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVa-d2-oqF">
-                                        <rect key="frame" x="20" y="20" width="334" height="29.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVa-d2-oqF">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2Ox-bG-if2"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <searchBar contentMode="redraw" placeholder=" user email" translatesAutoresizingMaskIntoConstraints="NO" id="sJf-9N-zYi">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Challenged users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M56-80-PmO">
+                                        <rect key="frame" x="0.0" y="106" width="374" height="40"/>
+                                        <color key="backgroundColor" red="0.87055837560000005" green="0.81657901669999999" blue="0.83316412870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="6wW-j4-Ms2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SZu-Hm-f7O">
+                                        <rect key="frame" x="0.0" y="146" width="374" height="470"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gh1-V7-7SF">
+                                                <rect key="frame" x="0.0" y="28" width="374" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gh1-V7-7SF" id="yWa-GR-PZy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEV-7L-xyB">
+                                                            <rect key="frame" x="15" y="5" width="354" height="40"/>
+                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="cEV-7L-xyB" secondAttribute="bottom" constant="5" id="AJ6-sc-App"/>
+                                                        <constraint firstItem="cEV-7L-xyB" firstAttribute="leading" secondItem="yWa-GR-PZy" secondAttribute="leading" constant="15" id="JXS-eX-sQ6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cEV-7L-xyB" secondAttribute="trailing" constant="5" id="WWD-QJ-bIE"/>
+                                                        <constraint firstItem="cEV-7L-xyB" firstAttribute="top" secondItem="yWa-GR-PZy" secondAttribute="top" constant="5" id="mmd-px-aIS"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sWc-QS-afC">
+                                                <rect key="frame" x="0.0" y="78" width="374" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sWc-QS-afC" id="2Xx-Xw-bya">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zb-w2-ce3">
+                                                            <rect key="frame" x="15" y="5" width="354" height="40"/>
+                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="6zb-w2-ce3" firstAttribute="leading" secondItem="2Xx-Xw-bya" secondAttribute="leading" constant="15" id="AuO-gf-BEZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="6zb-w2-ce3" secondAttribute="trailing" constant="5" id="D5V-Hb-sjl"/>
+                                                        <constraint firstItem="6zb-w2-ce3" firstAttribute="top" secondItem="2Xx-Xw-bya" secondAttribute="top" constant="5" id="NNe-Nc-47C"/>
+                                                        <constraint firstAttribute="bottom" secondItem="6zb-w2-ce3" secondAttribute="bottom" constant="5" id="xvt-bz-Gvv"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
                                     <stackView opaque="NO" alpha="0.94999998807907104" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="azn-ZD-BxU">
                                         <rect key="frame" x="7" y="623" width="360" height="55"/>
                                         <subviews>
@@ -804,7 +871,7 @@
                                                     <constraint firstAttribute="height" constant="55" id="Tm1-OH-Qi7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                                <state key="normal" title="Create CHALLENGE">
+                                                <state key="normal" title="Create">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -816,12 +883,22 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="cVa-d2-oqF" secondAttribute="trailing" constant="20" id="JDt-Ir-QC4"/>
+                                    <constraint firstItem="azn-ZD-BxU" firstAttribute="top" secondItem="SZu-Hm-f7O" secondAttribute="bottom" constant="7" id="5yS-s7-iWX"/>
+                                    <constraint firstAttribute="trailing" secondItem="sJf-9N-zYi" secondAttribute="trailing" id="EwN-cq-ZM6"/>
+                                    <constraint firstAttribute="trailing" secondItem="cVa-d2-oqF" secondAttribute="trailing" id="JDt-Ir-QC4"/>
                                     <constraint firstAttribute="trailing" secondItem="azn-ZD-BxU" secondAttribute="trailing" constant="7" id="L1a-A1-1cH"/>
-                                    <constraint firstItem="cVa-d2-oqF" firstAttribute="top" secondItem="56C-VK-Sa1" secondAttribute="top" constant="20" id="P4i-GW-Jql"/>
-                                    <constraint firstItem="cVa-d2-oqF" firstAttribute="leading" secondItem="56C-VK-Sa1" secondAttribute="leading" constant="20" id="cBk-Mj-qOe"/>
+                                    <constraint firstItem="cVa-d2-oqF" firstAttribute="top" secondItem="56C-VK-Sa1" secondAttribute="top" id="P4i-GW-Jql"/>
+                                    <constraint firstAttribute="trailing" secondItem="SZu-Hm-f7O" secondAttribute="trailing" id="VMc-Dz-pEW"/>
+                                    <constraint firstItem="SZu-Hm-f7O" firstAttribute="top" secondItem="M56-80-PmO" secondAttribute="bottom" id="Y58-By-RwS"/>
+                                    <constraint firstItem="SZu-Hm-f7O" firstAttribute="leading" secondItem="56C-VK-Sa1" secondAttribute="leading" id="Zv8-fH-LeT"/>
+                                    <constraint firstItem="cVa-d2-oqF" firstAttribute="leading" secondItem="56C-VK-Sa1" secondAttribute="leading" id="cBk-Mj-qOe"/>
+                                    <constraint firstItem="M56-80-PmO" firstAttribute="top" secondItem="sJf-9N-zYi" secondAttribute="bottom" id="deW-N0-W7l"/>
                                     <constraint firstAttribute="bottom" secondItem="azn-ZD-BxU" secondAttribute="bottom" constant="7" id="jrV-qQ-uop"/>
+                                    <constraint firstItem="sJf-9N-zYi" firstAttribute="top" secondItem="cVa-d2-oqF" secondAttribute="bottom" id="o9r-F2-4ew"/>
+                                    <constraint firstItem="M56-80-PmO" firstAttribute="leading" secondItem="56C-VK-Sa1" secondAttribute="leading" id="u8w-Vv-SWt"/>
+                                    <constraint firstAttribute="trailing" secondItem="M56-80-PmO" secondAttribute="trailing" id="vbr-Tf-GlI"/>
                                     <constraint firstItem="azn-ZD-BxU" firstAttribute="leading" secondItem="56C-VK-Sa1" secondAttribute="leading" constant="7" id="wRv-bD-wcd"/>
+                                    <constraint firstItem="sJf-9N-zYi" firstAttribute="leading" secondItem="56C-VK-Sa1" secondAttribute="leading" id="zXd-Vs-oQQ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -835,10 +912,17 @@
                         <viewLayoutGuide key="safeArea" id="EPe-VL-gRO"/>
                     </view>
                     <navigationItem key="navigationItem" id="QoR-1O-m9z"/>
+                    <connections>
+                        <outlet property="background" destination="56C-VK-Sa1" id="Y3V-LP-0ci"/>
+                        <outlet property="challengeButton" destination="laI-ia-k6C" id="WMP-QB-MZD"/>
+                        <outlet property="labelBeerName" destination="cVa-d2-oqF" id="s8B-Co-tbp"/>
+                        <outlet property="searchBar" destination="sJf-9N-zYi" id="mh5-Uk-3Aq"/>
+                        <outlet property="tableView" destination="SZu-Hm-f7O" id="rQN-iv-xWp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBv-fk-Tid" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5510" y="88"/>
+            <point key="canvasLocation" x="5508.6956521739139" y="87.723214285714278"/>
         </scene>
         <!--Challenges-->
         <scene sceneID="eUF-IO-hBG">

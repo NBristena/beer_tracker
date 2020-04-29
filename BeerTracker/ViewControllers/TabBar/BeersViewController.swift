@@ -100,9 +100,11 @@ class BeersViewController: UIViewController {
     }
      
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPath(for: cell){
-            let beerPage = segue.destination as? BeerPageViewController
-            beerPage!.beer = beerData[indexPath.row]
+        if segue.identifier == "gotoBeerPage"{
+            if let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPath(for: cell){
+                let beerPage = segue.destination as? BeerPageViewController
+                beerPage!.beer = beerData[indexPath.row]
+            }
         }
     }
 

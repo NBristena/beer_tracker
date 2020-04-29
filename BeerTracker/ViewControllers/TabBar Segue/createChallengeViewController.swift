@@ -7,24 +7,33 @@
 //
 
 import UIKit
+import Firebase
 
 class createChallengeViewController: UIViewController {
 
+    @IBOutlet weak var background: UIView!
+    @IBOutlet weak var labelBeerName: UILabel!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var challengeButton: UIButton!
+    
+    var beer = Beer()
+    var userBeersDb = Firestore.firestore().collection("users/\(Auth.auth().currentUser!.uid)/beers")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupView()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupView(){
+        self.background.layer.cornerRadius = 10
+        
+        self.challengeButton.layer.cornerRadius = 10
+        self.challengeButton.layer.borderWidth = 0.2
+        
+        self.labelBeerName.text = beer.name!
     }
-    */
 
 }

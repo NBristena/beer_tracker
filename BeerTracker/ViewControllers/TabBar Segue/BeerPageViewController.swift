@@ -37,56 +37,16 @@ class BeerPageViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func setupView(){
-        self.background.layer.cornerRadius = 10
-        
-        self.wishlistButton.layer.cornerRadius = 10
-        self.wishlistButton.layer.borderWidth = 0.2
-        self.wishlistButton.layer.borderColor = UIColor.darkGray.cgColor
-        self.challengeButton.layer.cornerRadius = 10
-        self.challengeButton.layer.borderWidth = 0.2
-        self.challengeButton.layer.borderColor = UIColor.darkGray.cgColor
-        self.checkinButton.layer.cornerRadius = 10
-        self.checkinButton.layer.borderWidth = 0.3
-        
-        if beer.mark == "checkin"{
-            self.markCheckin.alpha = 1
-            self.markWishlist.alpha = 0
-            self.markChallenge.alpha = 0
-            self.checkinButton.setTitle("CHECK-IN again", for: .normal)
-            self.wishlistButton.alpha = 0
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createChallenge"{
+            //if let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPath(for: cell){
+                let challengePage = segue.destination as? createChallengeViewController
+                challengePage!.beer = beer
+            //}
         }
-        else if beer.mark == "wish"{
-            self.markCheckin.alpha = 0
-            self.markWishlist.alpha = 1
-            self.markChallenge.alpha = 0
-            self.wishlistButton.alpha = 0
-        }
-        else if beer.mark == "challenge"{
-            self.markCheckin.alpha = 0
-            self.markWishlist.alpha = 0
-            self.markChallenge.alpha = 1
-            
-            self.wishlistButton.alpha = 0
-            self.challengeButton.setTitle("Create another CHALLENGE", for: .normal)
-        }
-        else{
-            self.markCheckin.alpha = 0
-            self.markWishlist.alpha = 0
-            self.markChallenge.alpha = 0
-            self.wishlistButton.alpha = 1
-            self.challengeButton.setTitle("Create CHALLENGE", for: .normal)
-            self.checkinButton.setTitle("CHECK-IN", for: .normal)
-        }
-        
-        self.labelName.text = beer.name!
-        self.labelBrewery.text = beer.brewery!
-        self.labelType.text = beer.type!
-        self.labelABV.text = beer.ABV! + " ABV"
-        
     }
     
-    
+
     @IBAction func challengeButtonTapped(_ sender: Any) {
         
     }
@@ -96,7 +56,7 @@ class BeerPageViewController: UIViewController {
         let alert = UIAlertController(title: "Action",
                                       message: "Are you sure you want to add this beer to WISHLIST?",
                                       preferredStyle: .actionSheet)
-              
+   
         let saveAction = UIAlertAction(title: "ADD", style: .default) { _ in
             self.userBeersDb.document((self.beer.id)!).setData(["savedAs":"wish",
                                                                 "id":self.beer.id!,
@@ -143,5 +103,57 @@ class BeerPageViewController: UIViewController {
             
         present(alert, animated: true, completion: nil)
     }
+    
+    
+    func setupView(){
+        self.background.layer.cornerRadius = 10
+        
+        self.wishlistButton.layer.cornerRadius = 10
+        self.wishlistButton.layer.borderWidth = 0.2
+        self.wishlistButton.layer.borderColor = UIColor.darkGray.cgColor
+        self.challengeButton.layer.cornerRadius = 10
+        self.challengeButton.layer.borderWidth = 0.2
+        self.challengeButton.layer.borderColor = UIColor.darkGray.cgColor
+        self.checkinButton.layer.cornerRadius = 10
+        self.checkinButton.layer.borderWidth = 0.2
+        
+        if beer.mark == "checkin"{
+            self.markCheckin.alpha = 1
+            self.markWishlist.alpha = 0
+            self.markChallenge.alpha = 0
+            self.checkinButton.setTitle("CHECK-IN again", for: .normal)
+            self.wishlistButton.alpha = 0
+        }
+        else if beer.mark == "wish"{
+            self.markCheckin.alpha = 0
+            self.markWishlist.alpha = 1
+            self.markChallenge.alpha = 0
+            self.wishlistButton.alpha = 0
+        }
+        else if beer.mark == "challenge"{
+            self.markCheckin.alpha = 0
+            self.markWishlist.alpha = 0
+            self.markChallenge.alpha = 1
+            
+            self.wishlistButton.alpha = 0
+            self.challengeButton.setTitle("Create another CHALLENGE", for: .normal)
+        }
+        else{
+            self.markCheckin.alpha = 0
+            self.markWishlist.alpha = 0
+            self.markChallenge.alpha = 0
+            self.wishlistButton.alpha = 1
+            self.challengeButton.setTitle("Create CHALLENGE", for: .normal)
+            self.checkinButton.setTitle("CHECK-IN", for: .normal)
+        }
+        
+        self.labelName.text = beer.name!
+        self.labelBrewery.text = beer.brewery!
+        self.labelType.text = beer.type!
+        self.labelABV.text = beer.ABV! + " ABV"
+        
+    }
+    
+    
     
 }
