@@ -124,10 +124,12 @@ extension BeersViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
-        self.searchBar.endEditing(true)
+        self.searchBar.resignFirstResponder()
+        //self.searchBar.endEditing(true)
     }
      
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
         searchActive = false
         searchBar.text = ""
         searchBar.showsCancelButton = false
@@ -186,9 +188,15 @@ class BeersTableViewCell: UITableViewCell {
         
         if beer.mark == "checkin"{
             self.markCheckin.alpha = 1
+            self.markWishlist.alpha = 0
+            self.markChallenge.alpha = 0
         }else if beer.mark == "wish"{
+            self.markCheckin.alpha = 0
             self.markWishlist.alpha = 1
+            self.markChallenge.alpha = 0
         }else if beer.mark == "challenge"{
+            self.markCheckin.alpha = 0
+            self.markWishlist.alpha = 0
             self.markChallenge.alpha = 1
         }else{
             self.markCheckin.alpha = 0

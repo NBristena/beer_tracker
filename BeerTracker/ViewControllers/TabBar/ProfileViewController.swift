@@ -12,10 +12,12 @@ import Firebase
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var logoutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        self.logoutButton.layer.cornerRadius = 7
         
         let db = Firestore.firestore()
         let uid: String =  Auth.auth().currentUser!.uid

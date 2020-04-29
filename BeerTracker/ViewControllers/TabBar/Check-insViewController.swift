@@ -102,10 +102,12 @@ extension Check_insViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
-        self.searchBar.resignFirstResponder()
+        self.searchBar.endEditing(true)
+        //self.searchBar.resignFirstResponder()
     }
       
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
         searchActive = false
         searchBar.text = ""
         searchBar.showsCancelButton = false

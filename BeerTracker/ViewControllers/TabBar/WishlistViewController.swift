@@ -89,10 +89,12 @@ extension WishlistViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
+        //self.searchBar.endEditing(true)
         self.searchBar.resignFirstResponder()
     }
       
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
         searchActive = false
         searchBar.text = ""
         searchBar.showsCancelButton = false
@@ -147,7 +149,7 @@ class WishlistTableViewCell: UITableViewCell {
         self.labelBrewery.text = wishlistBeer.brewery
         self.labelBeerType.text = wishlistBeer.type
         self.checkinButton.layer.cornerRadius = 5
-        self.checkinButton.layer.borderWidth = 1
+        self.checkinButton.layer.borderWidth = 0.5
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -160,11 +162,11 @@ class WishlistTableViewCell: UITableViewCell {
         let userBeer = self.tableViewController!.getBeer(name: self.labelBeerName.text!)
     
         
-        let alert = UIAlertController(title: "Check-in",
-                                      message: "If you complete this action, \(self.labelBeerName.text!) will be removed from the wishlist and added to your check-in list",
+        let alert = UIAlertController(title: "Action",
+                                      message: "\(self.labelBeerName.text!) will be removed from the wishlist and added to your check-in list",
                                         preferredStyle: .actionSheet)
           
-        let saveAction = UIAlertAction(title: "Check-in", style: .default) { _ in
+        let saveAction = UIAlertAction(title: "CHECK-IN", style: .default) { _ in
             self.tableViewController?.userBeersDb.document((userBeer.id)!).setData(["savedAs" : "checkin", "date":Timestamp(date: Date())], merge: true)
             self.tableViewController?.reload()
         }
