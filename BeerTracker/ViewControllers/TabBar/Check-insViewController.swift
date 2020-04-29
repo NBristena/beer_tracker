@@ -25,8 +25,6 @@ class Check_insViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
             
-        self.getData()
-
             /*
             let uid: String =  Auth.auth().currentUser!.uid
             let checkinsRef = db.collection("users/"+uid+"/beers")
@@ -54,9 +52,19 @@ class Check_insViewController: UIViewController {
                     
                     
             checkinsRef.document("crud3").setData(["name":"crud3-name", "brewery":"crud3-brewery", "type":"crud3-type", "ABV":12])
-              */
+             
+         override func viewDidLoad() {
+         super.viewDidLoad()
+             
+         self.getData()*/
                     
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkinData = []
+        self.getData()
+    }
+    
     //func getData(checkinData: [UserBeer], handler: @escaping (([UserBeer]) -> ()) ){
     func getData() {
         let group = DispatchGroup()

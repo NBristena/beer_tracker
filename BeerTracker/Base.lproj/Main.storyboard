@@ -582,7 +582,7 @@
                                             <outlet property="markChallenge" destination="SDO-Ze-3Fx" id="WOi-35-BwR"/>
                                             <outlet property="markCheckin" destination="6qU-Bg-FH2" id="ImW-u7-din"/>
                                             <outlet property="markWishlist" destination="K5e-Aq-O2z" id="HZL-cr-CqN"/>
-                                            <segue destination="sbo-7w-asc" kind="show" id="d4g-1x-3gj"/>
+                                            <segue destination="sbo-7w-asc" kind="show" identifier="gotoBeerPage" id="d4g-1x-3gj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

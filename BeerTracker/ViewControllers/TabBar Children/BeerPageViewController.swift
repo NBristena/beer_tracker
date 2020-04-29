@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class BeerPageViewController: UIViewController {
     
@@ -14,11 +15,15 @@ class BeerPageViewController: UIViewController {
     @IBOutlet weak var wishlistButton: UIButton!
     @IBOutlet weak var checkinButton: UIButton!
     
-    //let beer : Beer
+    var beer = Beer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("GOT BEER: \(beer.name!)")
+        print("with mark: \(beer.mark!)")
+        print("")
+        
         self.challengeButton.layer.cornerRadius = 10
         self.challengeButton.layer.borderWidth = 0.3
         self.wishlistButton.layer.cornerRadius = 10
@@ -33,7 +38,6 @@ class BeerPageViewController: UIViewController {
     
     @IBAction func challengeButtonTapped(_ sender: Any) {
     }
-    
 
     @IBAction func wishlistButtonTapped(_ sender: Any) {
     }

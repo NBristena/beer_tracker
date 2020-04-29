@@ -26,15 +26,14 @@ class WishlistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        self.getData()
 
                          
     }
     
-    func reload(){
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.wishlistData = []
         self.getData()
-        self.tableView.reloadData()
     }
     
     //func getData(wishlistData: [UserBeer], handler: @escaping (([UserBeer]) -> ()) ){
@@ -158,7 +157,6 @@ class WishlistTableViewCell: UITableViewCell {
     
     
     @IBAction func checkinButtonTapped(_ sender: AnyObject) {
-        print("CHECKIN BUTTON TAPPED for \(self.labelBeerName.text!)")
         let userBeer = self.tableViewController!.getBeer(name: self.labelBeerName.text!)
     
         
@@ -168,7 +166,7 @@ class WishlistTableViewCell: UITableViewCell {
           
         let saveAction = UIAlertAction(title: "CHECK-IN", style: .default) { _ in
             self.tableViewController?.userBeersDb.document((userBeer.id)!).setData(["savedAs" : "checkin", "date":Timestamp(date: Date())], merge: true)
-            self.tableViewController?.reload()
+            self.tableViewController?.viewDidAppear(true)
         }
           
         let cancelAction = UIAlertAction(title: "Go back", style: .cancel)

@@ -29,9 +29,6 @@ class BeersViewController: UIViewController {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Beers", style: .plain, target: nil, action: nil)
         
-        self.getData()
-        self.tableView.reloadData()
-        //self.reload()
         
 
         
@@ -55,11 +52,11 @@ class BeersViewController: UIViewController {
            */
     }
     
-    func reload(){
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.beerData = []
         self.userBeers = [:]
         self.getData()
-        self.tableView.reloadData()
     }
     
     func getData() {
@@ -105,7 +102,25 @@ class BeersViewController: UIViewController {
             group2.notify(queue: .main){}
         }
     }
+    
+    func getBeer(name: String) -> Beer{
+        var beer = Beer()
+        for b in self.beerData{
+            if b.name == name{
+                beer = b
+            }
+        }
+        return beer
+    }
      
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPath(for: cell){
+            /*let name = beerData[indexPath.row].name
+            print("INITIATE SEGUE HERE FROM SENDER \(name!)")*/
+            let beerPage = segue.destination as? BeerPageViewController
+            beerPage!.beer = beerData[indexPath.row]
+        }
+    }
 
 }
 
@@ -154,6 +169,7 @@ extension BeersViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell") as! BeersTableViewCell
+        cell.tableViewController = self
         if searchActive{
             cell.setBeerCell(with: searchedBeer[indexPath.row])
         }else{
@@ -175,16 +191,16 @@ class BeersTableViewCell: UITableViewCell {
     @IBOutlet weak var labelBrewery: UILabel!
     @IBOutlet weak var labelBeerType: UILabel!
     
-    
     @IBOutlet weak var markWishlist: UIImageView!
     @IBOutlet weak var markCheckin: UIImageView!
     @IBOutlet weak var markChallenge: UIImageView!
+    
+    var tableViewController : BeersViewController?
     
     func setBeerCell(with beer: Beer){
         self.labelBeerName.text = beer.name
         self.labelBrewery.text = beer.brewery
         self.labelBeerType.text = beer.type
-        
         
         if beer.mark == "checkin"{
             self.markCheckin.alpha = 1
@@ -204,18 +220,10 @@ class BeersTableViewCell: UITableViewCell {
             self.markChallenge.alpha = 0
         }
     }
-     /*private var lineId : Int?
      
-     override func awakeFromNib() {
-         super.awakeFromNib()
-     }*/
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
      
-     override func setSelected(_ selected: Bool, animated: Bool) {
-         super.setSelected(selected, animated: animated)
-     }
-     /*
-     func getId() -> Int{
-         return self.lineId!
-     }*/
      
 }
