@@ -48,7 +48,7 @@
 		2F5BFBD82447082000C3F894 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2F5BFBDA2447082F00C3F894 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		2F5BFBDD244719A400C3F894 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		2F92980924592B22004F18E5 /* BeerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeerPageViewController.swift; path = "BeerTracker/ViewControllers/TabBar Children/BeerPageViewController.swift"; sourceTree = SOURCE_ROOT; };
+		2F92980924592B22004F18E5 /* BeerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeerPageViewController.swift; path = "BeerTracker/ViewControllers/TabBar Segue/BeerPageViewController.swift"; sourceTree = SOURCE_ROOT; };
 		AE434DED4D8FB5A2B494036F /* Pods_BeerTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeerTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7DE36E48CFAD1551048A989 /* Pods-BeerTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerTracker.release.xcconfig"; path = "Target Support Files/Pods-BeerTracker/Pods-BeerTracker.release.xcconfig"; sourceTree = "<group>"; };
 		E5904BE7DFDB7D8926250CE2 /* Pods-BeerTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerTracker.debug.xcconfig"; path = "Target Support Files/Pods-BeerTracker/Pods-BeerTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,7 +93,6 @@
 				2F49405224565B0A00798257 /* BeersViewController.swift */,
 				2F49405A24565D1800798257 /* ChallengesViewController.swift */,
 				2F49405C24565D2300798257 /* ProfileViewController.swift */,
-				2F92980924592B22004F18E5 /* BeerPageViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -137,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				2F49405424565C1500798257 /* Login + Signup */,
+				2F92980C24598BD4004F18E5 /* TabBar Segue */,
 				2F49405524565C9400798257 /* TabBar */,
 			);
 			path = ViewControllers;
@@ -148,6 +148,14 @@
 				2F5BFBDD244719A400C3F894 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2F92980C24598BD4004F18E5 /* TabBar Segue */ = {
+			isa = PBXGroup;
+			children = (
+				2F92980924592B22004F18E5 /* BeerPageViewController.swift */,
+			);
+			path = "TabBar Segue";
 			sourceTree = "<group>";
 		};
 		4266D24EDE364F750DDEDF01 /* Frameworks */ = {
