@@ -25,9 +25,7 @@ class Check_insViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
             
-        self.getData(checkinData: checkinData){ (checkinData) in
-            print(checkinData)
-        }
+        self.getData()
 
             /*
             let uid: String =  Auth.auth().currentUser!.uid
@@ -59,15 +57,15 @@ class Check_insViewController: UIViewController {
               */
                     
     }
-        
-    func getData(checkinData: [UserBeer], handler: @escaping (([UserBeer]) -> ()) ){
+    //func getData(checkinData: [UserBeer], handler: @escaping (([UserBeer]) -> ()) ){
+    func getData() {
+        let group = DispatchGroup()
         var checkinBeer = UserBeer()
-           
-        db.collection("users/"+uid+"/beers").whereField("savedAs", isEqualTo: "checkin").getDocuments { (snapshot, error) in
-            if let error = error {
-                print("getData() error: \(error)")
-            }
-            else{
+        
+        group.enter()
+        db.collection("users/\(uid)/beers").whereField("savedAs", isEqualTo: "checkin").getDocuments { (snapshot, error) in
+            if let error = error {print("getData() error: \(error)")
+            }else{
                 for doc in snapshot!.documents{
                     checkinBeer.name = (doc.data()["name"] as! String)
                     checkinBeer.brewery = (doc.data()["brewery"] as! String)
@@ -82,7 +80,9 @@ class Check_insViewController: UIViewController {
                 }
                 self.tableView.reloadData()
             }
+            group.leave()
         }
+        group.notify(queue: .main) {}
     }
 }
 

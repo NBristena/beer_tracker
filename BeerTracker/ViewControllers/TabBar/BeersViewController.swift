@@ -27,14 +27,11 @@ class BeersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.getData(beerData: beerData){ (beerData) in
-            print(beerData)
-        }
-        
-        
+        //self.getData()
+        //self.tableView.reloadData()
+        self.reload()
         
 
-        //let uid: String =  Auth.auth().currentUser!.uid
         
         /*let checkinsRef = db.collection("users/"+uid+"/checkins")
            
@@ -55,10 +52,17 @@ class BeersViewController: UIViewController {
          
            */
     }
-
-    func getData(beerData: [Beer], handler: @escaping (([Beer]) -> ()) ){
-        let dispGr = DispatchGroup()
-        dispGr.enter()
+    
+    func reload(){
+        self.beerData = []
+        self.userBeers = [:]
+        self.getData()
+        self.tableView.reloadData()
+    }
+    
+    func getData() {
+        let group1 = DispatchGroup()
+        group1.enter()
         db.collection("users/\(uid)/beers").getDocuments { (snapshot, error) in
             if let error = error {print("getUserBeer() error: \(error)")
             }else{
@@ -68,10 +72,12 @@ class BeersViewController: UIViewController {
                     self.userBeers[name] = savedAs
                 }
             }
-            dispGr.leave()
+            group1.leave()
         }
         
-        dispGr.notify(queue: .main){
+        group1.notify(queue: .main){
+            let group2 = DispatchGroup()
+            group2.enter()
             var beer = Beer()
             self.db.collection("beers").getDocuments { (snapshot, error) in
                 if let error = error {print("getData() error: \(error)")
@@ -81,99 +87,85 @@ class BeersViewController: UIViewController {
                         beer.brewery = (doc.data()["brewery"] as! String)
                         beer.type = (doc.data()["type"] as! String)
                         beer.ABV = (doc.data()["ABV"] as! String)
+                        
                         if let val = self.userBeers[beer.name!]{
                             beer.mark = val
-                            print("FOR \(beer.name!) FOUND \(beer.mark!)")
                         }else{
-                            print("FOR \(beer.name!) NOT FOUND")
+                            beer.mark = "none"
                         }
                         
                         self.beerData.append(beer)
                     }
-                    self.tableView.reloadData()
+                    //self.tableView.reloadData()
                 }
+                group2.leave()
             }
+            group2.notify(queue: .main){}
         }
     }
-    
-    func getUserBeers(completion: () -> Void ){
-        print("AICI 1")
-        db.collection("users/\(uid)/beers").getDocuments { (snapshot, error) in
-            print("AICI 2")
-            if let error = error {print("getUserBeer() error: \(error)")
-            }else{
-                for doc in snapshot!.documents{
-                    let name = (doc.data()["name"] as! String)
-                    let savedAs = (doc.data()["savedAs"] as! String)
-                    self.userBeers[name] = savedAs
-                    print("ADDED \(name) : \(self.userBeers[name]!)")
-                }
-                print("AICI 3")
-            }
-            print("AICI 4")
-        }
-        completion()
-    }
-     
-     /*func chooseData() -> [Beer]{
-             if searchActive{
-                 return self.searchedBeer
-             }else{
-                 return self.beerData
-             }
-     }*/
      
 
 }
 
- extension BeersViewController: UITableViewDataSource, UITableViewDelegate{
-     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         if searchActive{
-             return searchedBeer.count
-         }else{
-            return beerData.count
-         }
-     }
-     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell") as! BeersTableViewCell
-         if searchActive{
-             cell.setBeerCell(with: searchedBeer[indexPath.row])
-         }else{
-             cell.setBeerCell(with: beerData[indexPath.row])
-         }
-         cell.accessoryType = .disclosureIndicator
-         return cell
-     }
-     
- }
 
- extension BeersViewController: UISearchBarDelegate{
+/*-----------------------------*
+ |         SEARCH BAR          |
+ *-----------------------------*/
+extension BeersViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.showsCancelButton = true
         searchedBeer = beerData.filter({$0.name!.lowercased().contains(searchText.lowercased())})
         searchActive = true
         self.tableView.reloadData()
-     }
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
-        //self.searchBar.resignFirstResponder()
         self.searchBar.endEditing(true)
     }
      
-     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
         searchBar.text = ""
         searchBar.showsCancelButton = false
         self.tableView.reloadData()
-     }
- }
+    }
+}
 
 
- class BeersTableViewCell: UITableViewCell {
+
+/*-----------------------------*
+ |         TABLE VIEW          |
+ *-----------------------------*/
+extension BeersViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchActive{
+            return searchedBeer.count
+        }else{
+           return beerData.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell") as! BeersTableViewCell
+        if searchActive{
+            cell.setBeerCell(with: searchedBeer[indexPath.row])
+        }else{
+            cell.setBeerCell(with: beerData[indexPath.row])
+        }
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+}
+
+
+
+/*-----------------------------*
+ |         CELL CLASS          |
+ *-----------------------------*/
+class BeersTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelBeerName: UILabel!
     @IBOutlet weak var labelBrewery: UILabel!
