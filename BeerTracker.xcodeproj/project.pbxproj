@@ -25,6 +25,7 @@
 		2F5BFBDB2447082F00C3F894 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BFBDA2447082F00C3F894 /* SignupViewController.swift */; };
 		2F5BFBDE244719A400C3F894 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BFBDD244719A400C3F894 /* Constants.swift */; };
 		2F92980A24592B22004F18E5 /* BeerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F92980924592B22004F18E5 /* BeerPageViewController.swift */; };
+		2FB9248E2459B57A00C56B57 /* createChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB9248D2459B57A00C56B57 /* createChallengeViewController.swift */; };
 		94E132FC5C9DBB3768DA5D08 /* Pods_BeerTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE434DED4D8FB5A2B494036F /* Pods_BeerTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		2F5BFBDA2447082F00C3F894 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		2F5BFBDD244719A400C3F894 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2F92980924592B22004F18E5 /* BeerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeerPageViewController.swift; path = "BeerTracker/ViewControllers/TabBar Segue/BeerPageViewController.swift"; sourceTree = SOURCE_ROOT; };
+		2FB9248D2459B57A00C56B57 /* createChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createChallengeViewController.swift; sourceTree = "<group>"; };
 		AE434DED4D8FB5A2B494036F /* Pods_BeerTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeerTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7DE36E48CFAD1551048A989 /* Pods-BeerTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerTracker.release.xcconfig"; path = "Target Support Files/Pods-BeerTracker/Pods-BeerTracker.release.xcconfig"; sourceTree = "<group>"; };
 		E5904BE7DFDB7D8926250CE2 /* Pods-BeerTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerTracker.debug.xcconfig"; path = "Target Support Files/Pods-BeerTracker/Pods-BeerTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				2F92980924592B22004F18E5 /* BeerPageViewController.swift */,
+				2FB9248D2459B57A00C56B57 /* createChallengeViewController.swift */,
 			);
 			path = "TabBar Segue";
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				2F1E13E0245845E9003E8B32 /* Beer.swift in Sources */,
 				2F5BFBC02446FA0A00C3F894 /* AppDelegate.swift in Sources */,
 				2F49405D24565D2300798257 /* ProfileViewController.swift in Sources */,
+				2FB9248E2459B57A00C56B57 /* createChallengeViewController.swift in Sources */,
 				2F49405324565B0A00798257 /* BeersViewController.swift in Sources */,
 				2F5BFBC22446FA0A00C3F894 /* SceneDelegate.swift in Sources */,
 				2F1E13E4245893B5003E8B32 /* Check-insViewController.swift in Sources */,

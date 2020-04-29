@@ -15,8 +15,6 @@ class WishlistViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    //let db = Firestore.firestore()
-    //let uid: String =  Auth.auth().currentUser!.uid
     let userBeersDb = Firestore.firestore().collection("users/\(Auth.auth().currentUser!.uid)/beers")
             
     var wishlistData : [UserBeer] = []
@@ -36,7 +34,7 @@ class WishlistViewController: UIViewController {
         self.getData()
     }
     
-    //func getData(wishlistData: [UserBeer], handler: @escaping (([UserBeer]) -> ()) ){
+    
     func getData(){
         let group = DispatchGroup()
         var wishlistBeer = UserBeer()
@@ -60,6 +58,7 @@ class WishlistViewController: UIViewController {
         }
         group.notify(queue: .main) {}
     }
+    
     
     func getBeer(name: String) -> UserBeer{
         var beer = UserBeer()
@@ -124,7 +123,6 @@ extension WishlistViewController: UITableViewDataSource, UITableViewDelegate{
         }else{
             cell.setWishlistCell(with: wishlistData[indexPath.row])
         }
-        //cell.accessoryType = .disclosureIndicator
         return cell
     }
 }
@@ -156,7 +154,7 @@ class WishlistTableViewCell: UITableViewCell {
     }
     
     
-    @IBAction func checkinButtonTapped(_ sender: AnyObject) {
+    @IBAction func checkinButtonTapped(_ sender: Any) {
         let userBeer = self.tableViewController!.getBeer(name: self.labelBeerName.text!)
     
         
@@ -165,7 +163,9 @@ class WishlistTableViewCell: UITableViewCell {
                                         preferredStyle: .actionSheet)
           
         let saveAction = UIAlertAction(title: "CHECK-IN", style: .default) { _ in
-            self.tableViewController?.userBeersDb.document((userBeer.id)!).setData(["savedAs" : "checkin", "date":Timestamp(date: Date())], merge: true)
+            self.tableViewController?.userBeersDb.document((userBeer.id)!).setData(["savedAs" : "checkin",
+                                                                                    "date":Timestamp(date: Date())],
+                                                                                   merge: true)
             self.tableViewController?.viewDidAppear(true)
         }
           

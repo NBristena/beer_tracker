@@ -65,7 +65,7 @@ class Check_insViewController: UIViewController {
         self.getData()
     }
     
-    //func getData(checkinData: [UserBeer], handler: @escaping (([UserBeer]) -> ()) ){
+    
     func getData() {
         let group = DispatchGroup()
         var checkinBeer = UserBeer()
@@ -75,6 +75,7 @@ class Check_insViewController: UIViewController {
             if let error = error {print("getData() error: \(error)")
             }else{
                 for doc in snapshot!.documents{
+                    checkinBeer.id = doc.documentID
                     checkinBeer.name = (doc.data()["name"] as! String)
                     checkinBeer.brewery = (doc.data()["brewery"] as! String)
                     checkinBeer.type = (doc.data()["type"] as! String)

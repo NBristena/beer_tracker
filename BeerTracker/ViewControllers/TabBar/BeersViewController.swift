@@ -16,7 +16,7 @@ class BeersViewController: UIViewController {
     
     
     let db = Firestore.firestore()
-    let uid: String =  Auth.auth().currentUser!.uid
+    let userBeersDb = Firestore.firestore().collection("users/\(Auth.auth().currentUser!.uid)/beers")
     
     var beerData : [Beer] = []
     var userBeers : [String:String] = [:]
@@ -29,27 +29,12 @@ class BeersViewController: UIViewController {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Beers", style: .plain, target: nil, action: nil)
         
-        
-
-        
-        /*let checkinsRef = db.collection("users/"+uid+"/checkins")
-           
-         * CREATE
-        checkinsRef.addDocument(data: ["name":"crud-name", "brewery":"crud-brewery", "type":"crud-type", "ABV":10])
-                
-         let newDoc = checkinsRef.document()
-         newDoc.setData(["name":"crud2-name", "brewery":"crud2-brewery", "type":"crud2-type", "ABV":11, "id": newDoc.documentID])
-         
-         checkinsRef.document("crud3").setData(["name":"crud3-name", "brewery":"crud3-brewery", "type":"crud3-type", "ABV":12])
-         
-         * UPDATE
+        /* UPDATE
          checkinsRef.document("beer-d").updateData([field:value])
          
          * DELETE
          checkinsRef.document("beer-d").delete()
-         
-         
-           */
+        */
     }
     
     
@@ -62,7 +47,7 @@ class BeersViewController: UIViewController {
     func getData() {
         let group1 = DispatchGroup()
         group1.enter()
-        db.collection("users/\(uid)/beers").getDocuments { (snapshot, error) in
+        userBeersDb.getDocuments { (snapshot, error) in
             if let error = error {print("getUserBeer() error: \(error)")
             }else{
                 for doc in snapshot!.documents{
@@ -82,6 +67,7 @@ class BeersViewController: UIViewController {
                 if let error = error {print("getData() error: \(error)")
                 }else{
                     for doc in snapshot!.documents{
+                        beer.id = doc.documentID
                         beer.name = (doc.data()["name"] as! String)
                         beer.brewery = (doc.data()["brewery"] as! String)
                         beer.type = (doc.data()["type"] as! String)
@@ -115,8 +101,6 @@ class BeersViewController: UIViewController {
      
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPath(for: cell){
-            /*let name = beerData[indexPath.row].name
-            print("INITIATE SEGUE HERE FROM SENDER \(name!)")*/
             let beerPage = segue.destination as? BeerPageViewController
             beerPage!.beer = beerData[indexPath.row]
         }
@@ -224,6 +208,5 @@ class BeersTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-     
      
 }

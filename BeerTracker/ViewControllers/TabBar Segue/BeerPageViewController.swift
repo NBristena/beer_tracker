@@ -11,7 +11,7 @@ import Firebase
 
 class BeerPageViewController: UIViewController {
     
-    @IBOutlet weak var background: UILabel!
+    @IBOutlet weak var background: UIView!
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var wishlistButton: UIButton!
     @IBOutlet weak var checkinButton: UIButton!
@@ -26,13 +26,10 @@ class BeerPageViewController: UIViewController {
     @IBOutlet weak var labelABV: UILabel!
     
     var beer = Beer()
+    var userBeersDb = Firestore.firestore().collection("users/\(Auth.auth().currentUser!.uid)/beers")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("GOT BEER: \(beer.name!)")
-        print("with mark: \(beer.mark!)")
-        print("")
         
         setupView()
         
@@ -42,7 +39,6 @@ class BeerPageViewController: UIViewController {
     
     func setupView(){
         self.background.layer.cornerRadius = 10
-        self.background.layer.masksToBounds = true
         
         self.wishlistButton.layer.cornerRadius = 10
         self.wishlistButton.layer.borderWidth = 0.2
@@ -70,13 +66,17 @@ class BeerPageViewController: UIViewController {
             self.markCheckin.alpha = 0
             self.markWishlist.alpha = 0
             self.markChallenge.alpha = 1
-            self.wishlistButton.alpha = 1
+            
+            self.wishlistButton.alpha = 0
+            self.challengeButton.setTitle("Create another CHALLENGE", for: .normal)
         }
         else{
             self.markCheckin.alpha = 0
             self.markWishlist.alpha = 0
             self.markChallenge.alpha = 0
             self.wishlistButton.alpha = 1
+            self.challengeButton.setTitle("Create CHALLENGE", for: .normal)
+            self.checkinButton.setTitle("CHECK-IN", for: .normal)
         }
         
         self.labelName.text = beer.name!
@@ -86,13 +86,62 @@ class BeerPageViewController: UIViewController {
         
     }
     
+    
     @IBAction func challengeButtonTapped(_ sender: Any) {
+        
     }
 
     @IBAction func wishlistButtonTapped(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Action",
+                                      message: "Are you sure you want to add this beer to WISHLIST?",
+                                      preferredStyle: .actionSheet)
+              
+        let saveAction = UIAlertAction(title: "ADD", style: .default) { _ in
+            self.userBeersDb.document((self.beer.id)!).setData(["savedAs":"wish",
+                                                                "id":self.beer.id!,
+                                                                "name":self.beer.name!,
+                                                                "brewery":self.beer.brewery!,
+                                                                "type":self.beer.type!,
+                                                                "ABV":self.beer.ABV!
+            ])
+            self.beer.mark = "wish"
+            self.viewDidLoad()
+        }
+              
+        let cancelAction = UIAlertAction(title: "No", style: .cancel)
+            
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+            
+        present(alert, animated: true, completion: nil)
     }
     
+    
     @IBAction func checkinButton(_ sender: Any) {
+        let alert = UIAlertController(title: "Action",
+                                      message: "Are you sure you want to add this beer to CKECK-INS?",
+                                      preferredStyle: .actionSheet)
+              
+        let saveAction = UIAlertAction(title: "ADD", style: .default) { _ in
+            self.userBeersDb.document((self.beer.id)!).setData(["savedAs":"checkin",
+                                                                "id":self.beer.id!,
+                                                                "name":self.beer.name!,
+                                                                "brewery":self.beer.brewery!,
+                                                                "type":self.beer.type!,
+                                                                "ABV":self.beer.ABV!,
+                                                                "date":Timestamp(date: Date())
+            ])
+            self.beer.mark = "checkin"
+            self.viewDidLoad()
+        }
+              
+        let cancelAction = UIAlertAction(title: "No", style: .cancel)
+            
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+            
+        present(alert, animated: true, completion: nil)
     }
     
 }
