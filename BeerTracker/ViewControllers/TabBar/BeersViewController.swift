@@ -40,13 +40,17 @@ class BeersViewController: UIViewController {
     func getData() {
         let group1 = DispatchGroup()
         group1.enter()
+        var name = ""
+        var savedAs = ""
         userBeersDb.getDocuments { (snapshot, error) in
             if let error = error {print("getUserBeer() error: \(error)")
             }else{
-                for doc in snapshot!.documents{
-                    let name = (doc.data()["name"] as! String)
-                    let savedAs = (doc.data()["savedAs"] as! String)
-                    self.userBeers[name] = savedAs
+                if snapshot!.documents.count > 1 {
+                    for doc in snapshot!.documents{
+                        name = (doc.data()["name"] as! String)
+                        savedAs = (doc.data()["savedAs"] as! String)
+                        self.userBeers[name] = savedAs
+                        }
                 }
             }
             group1.leave()

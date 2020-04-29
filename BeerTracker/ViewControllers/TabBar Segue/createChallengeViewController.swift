@@ -16,15 +16,12 @@ class createChallengeViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var challengeButton: UIButton!
     
-    
-    let usersDb = Firestore.firestore().collection("users")
-    let challengesDb = Firestore.firestore().collection("challenges")
-    let uid = Auth.auth().currentUser!.uid
-    //let userBeersDb = Firestore.firestore().collection("users/\(Auth.auth().currentUser!.uid)/beers")
-    var userEmail : String = " "
 
+    let usersDb = Firestore.firestore().collection("users")
+    let userBeersDb = Firestore.firestore().collection("users/\(Auth.auth().currentUser!.uid)/beers")
+    
     var beer = Beer()
     var users : [User] = []
     var searchedUser : [User] = []
@@ -32,7 +29,6 @@ class createChallengeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("gets to view load")
         setupView()
         getUsers()
         
@@ -51,7 +47,7 @@ class createChallengeViewController: UIViewController {
                         user.name = (doc.data()["name"] as! String)
                         user.email = (doc.data()["email"] as! String)
                     }else{
-                        self.userEmail = (doc.data()["email"] as! String)
+                        let userEmail = (doc.data()["email"] as! String)
                     }
                     self.users.append(user)
                 }
@@ -65,40 +61,40 @@ class createChallengeViewController: UIViewController {
     func setupView(){
         self.background.layer.cornerRadius = 10
         
-        self.createButton.layer.cornerRadius = 10
-        self.createButton.layer.borderWidth = 0.2
+        self.challengeButton.layer.cornerRadius = 10
+        self.challengeButton.layer.borderWidth = 0.2
         
         self.labelBeerName.text = beer.name!
         
         self.title = "CHALLENGE"
+        
     }
 
     /*
-    @IBAction func createButtonTapped(_ sender: Any) {
-        let chId = UUID().uuidString
-        // presupunem ca aici am avea email-urile userilor in cauza si facem rost de uid-ul fiecaruia
-        let users = [uid,"ncdbcsr7krh3Hs6gD3XwXgqerfJ2"]
-        self.challengesDb.document(chId).setData(["id":chId,
-                                                  "beerId":beer.id!,
-                                                  "createdBy":userEmail,
-                                                  "users":users
-        ])
-        for userId in users{
-            usersDb.document(userId).collection("beers").document(beer.id!).setData(["savedAs" : "challenge",
-                                                                                     "id":beer.id!,
-                                                                                     "name":beer.name!,
-                                                                                     "brewery":beer.brewery!,
-                                                                                     "type":beer.type!,
-                                                                                     "ABV":beer.ABV!,
-                                                                                     "challengeId":chId,
-                                                                                     "date":Timestamp(date: Date())],
-                                                                                    merge: true)
-        }
+    //create challenge
+     
+     var users = []   //pentru fiecare user selectat se salveaza uid-ul
+     let challengeId = UUID().uuidString
+     
+     //pentru a creea challenge-ul se apeleaza
+     challengeDb.document(challengeId).setData(["id":challengeId,
+                                                            "beerId":beer.id!,
+                                                            "createdBy":myEmail,
+                                                            "users":users])
+     //apoi pentru fiecare userId se creeaza un document in "users/uid/beers" pentru beer.id cu "savedAs":"challenge"
+     for userId in users{
+     userBeersDb.document(beer.id!).setData(["id":challengeId,
+     "beerId":beer.id!,
+     "createdBy":myEmail,
+     "users":users])
+     }
+     
+     
+     self.tableViewController?.userBeersDb.document((userBeer.id)!).setData(["savedAs" : "checkin",
+          "date":Timestamp(date: Date())],
+         merge: true)
         
-        self.navigationController?.popToRootViewController(animated: true)
-    }*/
-    
-    
+     */
     
 }
 
@@ -112,7 +108,7 @@ extension createChallengeViewController: UISearchBarDelegate{
         searchBar.showsCancelButton = true
         searchedUser = users.filter({$0.email!.lowercased().contains(searchText.lowercased())})
         searchActive = true
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

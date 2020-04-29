@@ -232,7 +232,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkin Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xm-bU-P8s">
-                                                    <rect key="frame" x="261" y="43" width="131" height="21"/>
+                                                    <rect key="frame" x="261" y="16" width="131" height="21"/>
                                                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                                     <color key="textColor" red="0.13898966239999999" green="0.3311168438" blue="0.49492385789999999" alpha="0.71575342470000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -240,10 +240,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="n3t-GW-R6w" firstAttribute="top" secondItem="wfd-pe-qna" secondAttribute="top" constant="6" id="3AB-x1-6Xc"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="8xm-bU-P8s" secondAttribute="bottom" constant="5" id="K1n-xG-DUd"/>
                                                 <constraint firstItem="Xza-pO-RoB" firstAttribute="leading" secondItem="wfd-pe-qna" secondAttribute="leading" constant="52" id="SIP-iV-AwZ"/>
                                                 <constraint firstItem="Xza-pO-RoB" firstAttribute="top" secondItem="n3t-GW-R6w" secondAttribute="bottom" constant="6" id="Tq8-gV-hiz"/>
                                                 <constraint firstItem="n3t-GW-R6w" firstAttribute="leading" secondItem="wfd-pe-qna" secondAttribute="leading" constant="22" id="V5H-ok-6pS"/>
+                                                <constraint firstItem="8xm-bU-P8s" firstAttribute="top" secondItem="wfd-pe-qna" secondAttribute="topMargin" constant="5" id="aeB-E2-JCp"/>
                                                 <constraint firstItem="15p-Ns-e6o" firstAttribute="leading" secondItem="wfd-pe-qna" secondAttribute="leading" constant="52" id="apE-Sv-t71"/>
                                                 <constraint firstItem="15p-Ns-e6o" firstAttribute="top" secondItem="Xza-pO-RoB" secondAttribute="bottom" constant="3" id="kGs-57-gut"/>
                                                 <constraint firstAttribute="trailing" secondItem="8xm-bU-P8s" secondAttribute="trailing" constant="22" id="l8R-Jk-UrD"/>
@@ -696,7 +696,8 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="tp2-k6-9sF" kind="show" identifier="createChallenge" id="UhB-RE-NbU"/>
+                                                    <action selector="challengeButtonTapped:" destination="sbo-7w-asc" eventType="touchUpInside" id="kzs-zh-81W"/>
+                                                    <segue destination="tp2-k6-9sF" kind="show" identifier="createChallenge" id="CPf-qt-enk"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjo-gd-vJb">
@@ -760,7 +761,7 @@
                     <navigationItem key="navigationItem" id="wZL-bG-UOg"/>
                     <connections>
                         <outlet property="background" destination="sSC-H3-qcq" id="CJg-wY-Xsq"/>
-                        <outlet property="challengeButton" destination="cvI-dd-pgO" id="aZE-du-xbA"/>
+                        <outlet property="challengeButton" destination="cvI-dd-pgO" id="owM-H1-5FZ"/>
                         <outlet property="checkinButton" destination="Qjo-gd-vJb" id="e9x-E0-BKT"/>
                         <outlet property="labelABV" destination="qzd-iG-3Uu" id="wkY-9q-suE"/>
                         <outlet property="labelBrewery" destination="cEG-rQ-n8y" id="k6M-Wk-IWc"/>
@@ -875,7 +876,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="challengeButtonTapped:" destination="sbo-7w-asc" eventType="touchUpInside" id="5OX-fa-Ui5"/>
-                                                    <action selector="createButtonTapped:" destination="tp2-k6-9sF" eventType="touchUpInside" id="t0e-ha-8CK"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -915,8 +915,6 @@
                     <connections>
                         <outlet property="background" destination="56C-VK-Sa1" id="Y3V-LP-0ci"/>
                         <outlet property="challengeButton" destination="laI-ia-k6C" id="WMP-QB-MZD"/>
-                        <outlet property="createButton" destination="laI-ia-k6C" id="TnP-Ug-ucs"/>
-                        <outlet property="createButtonTapped" destination="56C-VK-Sa1" id="D5e-6D-Flj"/>
                         <outlet property="labelBeerName" destination="cVa-d2-oqF" id="s8B-Co-tbp"/>
                         <outlet property="searchBar" destination="sJf-9N-zYi" id="mh5-Uk-3Aq"/>
                         <outlet property="tableView" destination="SZu-Hm-f7O" id="rQN-iv-xWp"/>

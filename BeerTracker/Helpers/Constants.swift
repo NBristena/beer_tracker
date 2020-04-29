@@ -12,10 +12,10 @@ struct Constants {
     struct Storyboard {
         static let tabBarViewController = "TabBarViewController"
         
-        /*static let checkinsViewController = "CheckinsViewController"
+        static let checkinsViewController = "CheckinsViewController"
         static let wishlistViewController = "WishlistViewController"
         static let beersViewController = "BeersViewController"
         static let challengesViewController = "ChallengesViewController"
-        static let profileViewController = "ProfileViewController"*/
+        static let profileViewController = "ProfileViewController"
     }
 }
