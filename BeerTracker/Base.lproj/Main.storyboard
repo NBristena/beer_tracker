@@ -696,8 +696,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="challengeButtonTapped:" destination="sbo-7w-asc" eventType="touchUpInside" id="kzs-zh-81W"/>
-                                                    <segue destination="tp2-k6-9sF" kind="show" identifier="createChallenge" id="CPf-qt-enk"/>
+                                                    <segue destination="tp2-k6-9sF" kind="show" identifier="createChallenge" id="UhB-RE-NbU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjo-gd-vJb">
@@ -761,7 +760,7 @@
                     <navigationItem key="navigationItem" id="wZL-bG-UOg"/>
                     <connections>
                         <outlet property="background" destination="sSC-H3-qcq" id="CJg-wY-Xsq"/>
-                        <outlet property="challengeButton" destination="cvI-dd-pgO" id="owM-H1-5FZ"/>
+                        <outlet property="challengeButton" destination="cvI-dd-pgO" id="aZE-du-xbA"/>
                         <outlet property="checkinButton" destination="Qjo-gd-vJb" id="e9x-E0-BKT"/>
                         <outlet property="labelABV" destination="qzd-iG-3Uu" id="wkY-9q-suE"/>
                         <outlet property="labelBrewery" destination="cEG-rQ-n8y" id="k6M-Wk-IWc"/>
@@ -876,6 +875,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="challengeButtonTapped:" destination="sbo-7w-asc" eventType="touchUpInside" id="5OX-fa-Ui5"/>
+                                                    <action selector="createButtonTapped:" destination="tp2-k6-9sF" eventType="touchUpInside" id="t0e-ha-8CK"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -915,6 +915,8 @@
                     <connections>
                         <outlet property="background" destination="56C-VK-Sa1" id="Y3V-LP-0ci"/>
                         <outlet property="challengeButton" destination="laI-ia-k6C" id="WMP-QB-MZD"/>
+                        <outlet property="createButton" destination="laI-ia-k6C" id="TnP-Ug-ucs"/>
+                        <outlet property="createButtonTapped" destination="56C-VK-Sa1" id="D5e-6D-Flj"/>
                         <outlet property="labelBeerName" destination="cVa-d2-oqF" id="s8B-Co-tbp"/>
                         <outlet property="searchBar" destination="sJf-9N-zYi" id="mh5-Uk-3Aq"/>
                         <outlet property="tableView" destination="SZu-Hm-f7O" id="rQN-iv-xWp"/>

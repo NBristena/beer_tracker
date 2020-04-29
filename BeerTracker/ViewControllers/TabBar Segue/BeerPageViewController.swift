@@ -12,7 +12,9 @@ import Firebase
 class BeerPageViewController: UIViewController {
     
     @IBOutlet weak var background: UIView!
+    
     @IBOutlet weak var challengeButton: UIButton!
+    
     @IBOutlet weak var wishlistButton: UIButton!
     @IBOutlet weak var checkinButton: UIButton!
     
@@ -38,9 +40,11 @@ class BeerPageViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("GOT TO SEGUE")
         if segue.identifier == "createChallenge"{
             //if let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPath(for: cell){
-                let challengePage = segue.destination as? createChallengeViewController
+            print("GOT INTO TRANSITION")
+            let challengePage = segue.destination as? createChallengeViewController
                 challengePage!.beer = beer
             //}
         }
@@ -48,7 +52,7 @@ class BeerPageViewController: UIViewController {
     
 
     @IBAction func challengeButtonTapped(_ sender: Any) {
-        
+        print("TAPPED THE BUTTON")
     }
 
     @IBAction func wishlistButtonTapped(_ sender: Any) {
@@ -79,7 +83,7 @@ class BeerPageViewController: UIViewController {
     
     
     @IBAction func checkinButton(_ sender: Any) {
-        let alert = UIAlertController(title: "",
+        let alert = UIAlertController(title: "Action",
                                       message: "Are you sure you want to add this beer to CKECK-INS?",
                                       preferredStyle: .actionSheet)
               
@@ -151,8 +155,6 @@ class BeerPageViewController: UIViewController {
         self.labelBrewery.text = beer.brewery!
         self.labelType.text = beer.type!
         self.labelABV.text = beer.ABV! + " ABV"
-        
-        self.title = "INFO"
         
     }
     
